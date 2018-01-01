@@ -1,30 +1,56 @@
-let mix = require('laravel-mix');
-let tailwindcss = require('tailwindcss');
-let glob = require('glob-all');
-let PurgecssPlugin = require('purgecss-webpack-plugin');
+const argv = require('yargs').argv
+const command = require('node-cmd')
+const mix = require('laravel-mix')
+const OnBuild = require('on-build-webpack')
+const Watch = require('webpack-watch')
+const tailwind = require('tailwindcss')
+const config = require('tailwindcss/defaultConfig.js')
+const fs = require('fs')
 
- class TailwindExtractor {
-   static extract(content) {
-     return content.match(/[A-z0-9-:\/]+/g);
-   }
- }
+fs.writeFileSync('./tailwind.json', JSON.stringify(config()))
 
-mix.postCss('resources/assets/css/app.css', 'public/css', [
-    tailwindcss('./tailwind.js'),
-]);
+const env = argv.e || argv.env || 'local'
+const plugins = [
+    new OnBuild(() => {
+        command.get('./vendor/bin/jigsaw build ' + env, (error, stdout, stderr) => {
+            if (error) {
+                console.log(stderr)
+                process.exit(1)
+            }
+            console.log(stdout)
+        })
+    }),
+    new Watch({
+        paths: ['source/**/*.md', 'source/**/*.php'],
+        options: { ignoreInitial: true }
+    }),
+]
+
+mix.webpackConfig({ plugins })
+mix.setPublicPath('source')
+
+mix
+  .js('source/_assets/js/app.js', 'source/js')
+  .less('source/_assets/less/main.less', 'source/css')
+  .options({
+    postCss: [
+      tailwind('tailwind.js'),
+    ]
+  })
+  .version();
 
 if (mix.inProduction()) {
     mix.webpackConfig({
       plugins: [
         new PurgecssPlugin({
           paths: glob.sync([
-            path.join(__dirname, "resources/views/**/*.blade.php"),
-            path.join(__dirname, "resources/assets/js/**/*.vue")
+            path.join(__dirname, "source/_assets/**/*.blade.php"),
+            path.join(__dirname, "source/_layouts/**/*.blade.php")
           ]),
           extractors: [
             {
               extractor: TailwindExtractor,
-              extensions: ["html", "js", "php", "vue"]
+              extensions: ["php"]
             }
           ]
         })
