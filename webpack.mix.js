@@ -4,10 +4,9 @@ const mix = require('laravel-mix')
 const OnBuild = require('on-build-webpack')
 const Watch = require('webpack-watch')
 const tailwind = require('tailwindcss')
-const config = require('tailwindcss/defaultConfig.js')
+const glob = require('glob-all')
+let PurgecssPlugin = require("purgecss-webpack-plugin")
 const fs = require('fs')
-
-fs.writeFileSync('./tailwind.json', JSON.stringify(config()))
 
 const env = argv.e || argv.env || 'local'
 const plugins = [
@@ -25,6 +24,12 @@ const plugins = [
         options: { ignoreInitial: true }
     }),
 ]
+
+class TailwindExtractor {
+  static extract(content) {
+    return content.match(/[A-z0-9-:\/]+/g);
+  }
+}
 
 mix.webpackConfig({ plugins })
 mix.setPublicPath('source')
