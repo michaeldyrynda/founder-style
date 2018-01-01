@@ -1,10 +1,23 @@
 {
   "private": true,
+  "scripts": {
+    "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "dev": "npm run development",
+    "prod": "npm run production",
+    "watch": "npm run development -- --watch"
+  },
   "devDependencies": {
-    "gulp": "^3.8.8",
-    "hasbin": "^1.2.3",
-    "laravel-elixir": "^6.0.0-15",
-    "laravel-elixir-browsersync-official": "^1.0.0",
-    "yargs": "^4.6.0"
+    "cross-env": "^5.1",
+    "glob-all": "^3.1.0",
+    "laravel-mix": "^1.5.1",
+    "less": "^2.7.3",
+    "less-loader": "^4.0.5",
+    "node-cmd": "^3.0.0",
+    "on-build-webpack": "^0.1.0",
+    "purgecss-webpack-plugin": "^0.17.0",
+    "tailwindcss": "^0.4.0",
+    "webpack-watch": "^0.2.0",
+    "yargs": "^10.0.3"
   }
 }
