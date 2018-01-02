@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <link rel="stylesheet" href="/css/main.css?id=45e139c74f7a337108d7">
+        <link rel="stylesheet" href="/css/main.css?id=ca0e50766a22ebc42290">
     </head>
     <body>
         <div class="h-screen">
@@ -98,11 +98,34 @@ class ServiceController
 
         Note::create(request('body'));
     }
-}</code></pre>                        </div>
+}</code></pre>
+<h2>Route Model Binding</h2>
+<p>Whilst Laravel has a powerful Service Container, in terms of method injection in controller methods, it is most useful for <a href="https://laravel.com/docs/5.5/routing#route-model-binding">route model binding</a>.</p>
+<p>Using implicit binding out of the box, it is trivial to load the corresponding model and pass it directly to your controller, without an extra line querying the database.</p>
+<pre><code class="language-php">// routes/web.php
+Route::get('/services/{service}', 'ServicesController@show')-&gt;name('services.show');
+
+// app/Http/Controllers/ServicesController.php
+// Without route model binding
+public function show($service)
+{
+    $service = Service::findOrFail($service);
+
+    // Rest of function logic
+}
+
+// With route model binding
+public function show(Service $service)
+{
+    // $service will be an Eloquent instance based on the identifier passed
+    // in the route's {service} placeholder. If a record cannot be found
+    // Laravel will return a ModelNotFoundException and in turn a 404.
+}</code></pre>
+<p>In many cases, the default implicit binding will suffice. If you want to use a column other than the model's <code>id</code>, you can set the value using the model's <code>getRouteKeyName</code> method. For more complex lookups, can make use of explicit binding.</p>                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </body>
-    <script src="/js/app.js?id=670e8c263b6b71981ba9"></script>
+    <script src="/js/app.js?id=e30f9a8006c930fc2816"></script>
 </html>
