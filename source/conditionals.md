@@ -33,7 +33,7 @@ public function update($service)
 
 ## Avoid nested conditionals
 
-Whenever possible, avoid deep-nesting and look for opportunities to extract complex conditional logic to methods.
+Whenever possible, avoid deep-nesting and look for opportunities to either extract complex conditional logic to methods or return early.
 
 ## Ternary operations
 
