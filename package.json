@@ -6,7 +6,7 @@
     "dev": "npm run development",
     "prod": "npm run production",
     "watch": "npm run development -- --watch",
-    "deploy": "yarn run prod && ./vendor/bin/jigsaw build production && git add build_production && git commit -m 'production build for deploy' && git subtree push --prefix build_production origin gh-pages"
+    "deploy": "yarn run prod && ./vendor/bin/jigsaw build production && echo 'style.dyrynda.com.au' > build_production/CNAME && git add build_production && git commit -m 'production build for deploy' && git subtree push --prefix build_production origin gh-pages"
   },
   "devDependencies": {
     "cross-env": "^5.1",
