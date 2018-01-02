@@ -5,7 +5,8 @@
     "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
     "dev": "npm run development",
     "prod": "npm run production",
-    "watch": "npm run development -- --watch"
+    "watch": "npm run development -- --watch",
+    "deploy": "yarn run prod && ./vendor/bin/jigsaw build production && git add build_production && git commit -m 'production build for deploy' && git subtree push --prefix build_production origin gh-pages"
   },
   "devDependencies": {
     "cross-env": "^5.1",
