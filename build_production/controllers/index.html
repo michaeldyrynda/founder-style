@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <link rel="stylesheet" href="/css/main.css?id=cf53a788ae11427270b9">
+    </head>
+    <body>
+        <div class="h-screen">
+            <div class="bg-indigo-lightest flex min-h-full -mx-2">
+                <div class="w-1/5 border-r border-indigo-lighter">
+                    <h1 class="text-2xl font-medium block px-8 mt-4 mb-4">
+                        <a href="/" class="text-indigo-darker no-underline hover:no-underline">Founder</a>
+                    </h1>
+                    <hr class="block h-px w-full bg-indigo-lighter mt-2 mb-4">
+                    <ul class="px-8 mt-6 text-base">
+            <li class="leading-loose font-light">
+            <a href="/general-style">General Style</a>
+        </li>
+            <li class="leading-loose font-light">
+            <a href="/docblocks-comments">Docblocks &amp; Comments</a>
+        </li>
+            <li class="leading-loose font-light">
+            <a href="/conditionals">Conditionals</a>
+        </li>
+            <li class="leading-loose font-light">
+            <a href="/configuration">Configuration</a>
+        </li>
+            <li class="leading-loose font-light">
+            <a href="/routing">Routing</a>
+        </li>
+            <li class="leading-loose font-medium">
+            <a href="/controllers">Controllers</a>
+        </li>
+            <li class="leading-loose font-light">
+            <a href="/views">Views</a>
+        </li>
+            <li class="leading-loose font-light">
+            <a href="/validation">Validation</a>
+        </li>
+            <li class="leading-loose font-light">
+            <a href="/requests">Requests</a>
+        </li>
+            <li class="leading-loose font-light">
+            <a href="/eloquent">Eloquent</a>
+        </li>
+            <li class="leading-loose font-light">
+            <a href="/migrations-schema">Migrations &amp; Schema</a>
+        </li>
+    </ul>
+                </div>
+                <div class="bg-white w-4/5 p-4">
+                    <div class="container w-4/5 mx-auto">
+                        <h1 class="text-2xl font-medium block mb-4 text-indigo">
+                            Controllers
+                        </h1>
+                        <hr class="block h-px w-full bg-indigo-lighter text-left mt-2 mb-4">
+                        <div class="markdown">
+                            <p>Controllers that are responsible for managing a resource must use the plural version of the resource in their name.</p>
+<pre><code class="language-php">// Good
+class ServicesController
+{
+    // ...
+}
+
+// Bad
+class ServiceController
+{
+    // ...
+}</code></pre>
+<h2>RESTful controllers</h2>
+<p>Always strive to stick with the seven RESTful actions in your controllers: <code>index</code>, <code>create</code>, <code>store</code>, <code>show</code>, <code>edit</code>, <code>update</code>, and <code>destroy</code>. When you keep your controllers to these actions, they're easier to read and more closely adhere to a single responsibility mindset.</p>
+<p>Don't be afraid to add a few resource-specific methods to your controller, but if you find yourself adding too many methods that apply to specific resource relationships, for example, then strive to name the relationships you're working with and create a new controller. <em>Never be afraid to add another controller!</em>.</p>
+<p><a href="https://twitter.com/adamwathan">Adam Wathan</a> gave an <a href="https://youtu.be/MF0jFKvS4SI">excellent talk</a> at Laracon US 2017 that expands on this concept in greater detail.</p>
+<h2>Authorisation</h2>
+<p>In most cases, authorisation for a controller action should be the first action carried out in your controllers, enabling you to return early without processing logic an unauthorised user doesn't have access to.</p>
+<pre><code class="language-php">class ServicesController
+{
+    public function update(Service $service)
+    {
+        $this-&gt;authorize('update', $service);
+
+        // The current user can update the service...
+    }
+}</code></pre>
+<h2>Validation</h2>
+<p>When building an application, it is preferable to handle your request validation inside your controller methods until either size or complexity dictates that you extract to a <a href="https://laravel.com/docs/5.5/validation#form-request-validation">form request</a>. Practise <a href="https://martinfowler.com/bliki/Yagni.html">YAGNI</a>.</p>
+<p>In simple instances, use the <code>validate</code> method on the <code>request</code> helper. If using form requests, be sure to type hint the form request and leverage Laravel's <a href="https://laravel.com/docs/5.5/container">Service Container</a> to inject it in your method as needed.</p>
+<p>Be sure to declare your request key's validation rules using array syntax. This makes them not only more readable, but also consistent, when using validation <code>Rule</code> object variants or <a href="https://laravel.com/docs/5.5/validation#custom-validation-rules">custom validation rules</a>.</p>
+<pre><code class="language-php">class NotesController
+{
+    public function create()
+    {
+        request()-&gt;validate([
+            'body' =&gt; ['required'],
+        ]);
+
+        Note::create(request('body'));
+    }
+}</code></pre>                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="/js/app.js?id=670e8c263b6b71981ba9"></script>
+</html>
