@@ -57,6 +57,40 @@ if (mix.inProduction()) {
               extensions: ["html"]
             }
           ],
+          whitelist: [
+            'pre',
+            'code',
+            'blockquote',
+            'namespace',
+            'token',
+            'comment',
+            'prolog',
+            'doctype',
+            'cdata',
+            'punctuation',
+            'property',
+            'tag',
+            'boolean',
+            'number',
+            'constant',
+            'symbol',
+            'deleted',
+            'inserted',
+            'string',
+            'operator',
+            'entity',
+            'url',
+            'atrule',
+            'attr-value',
+            'keyword',
+            'function',
+            'regex',
+            'important',
+            'variable',
+            'bold',
+            'entity',
+          ],
+          whitelistPatterns: [/token/, /language\-/]
         })
       ]
     });
