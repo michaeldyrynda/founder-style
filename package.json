@@ -16,7 +16,6 @@
     "less-loader": "^4.0.5",
     "node-cmd": "^3.0.0",
     "on-build-webpack": "^0.1.0",
-    "purgecss-webpack-plugin": "^0.17.0",
     "tailwindcss": "^0.4.0",
     "webpack-watch": "^0.2.0",
     "yargs": "^10.0.3"

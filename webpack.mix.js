@@ -5,7 +5,6 @@ const OnBuild = require('on-build-webpack')
 const Watch = require('webpack-watch')
 const tailwind = require('tailwindcss')
 const glob = require('glob-all')
-let PurgecssPlugin = require("purgecss-webpack-plugin")
 const fs = require('fs')
 
 const env = argv.e || argv.env || 'local'
@@ -25,12 +24,6 @@ const plugins = [
     }),
 ]
 
-class TailwindExtractor {
-  static extract(content) {
-    return content.match(/[A-z0-9-:\/]+/g);
-  }
-}
-
 mix.webpackConfig({ plugins })
 mix.setPublicPath('source')
 
@@ -43,56 +36,3 @@ mix
     ]
   })
   .version();
-
-if (mix.inProduction()) {
-    mix.webpackConfig({
-      plugins: [
-        new PurgecssPlugin({
-          paths: glob.sync([
-            path.join(__dirname, "build_production/**/*.html")
-          ]),
-          extractors: [
-            {
-              extractor: TailwindExtractor,
-              extensions: ["html"]
-            }
-          ],
-          whitelist: [
-            'pre',
-            'code',
-            'blockquote',
-            'namespace',
-            'token',
-            'comment',
-            'prolog',
-            'doctype',
-            'cdata',
-            'punctuation',
-            'property',
-            'tag',
-            'boolean',
-            'number',
-            'constant',
-            'symbol',
-            'deleted',
-            'inserted',
-            'string',
-            'operator',
-            'entity',
-            'url',
-            'atrule',
-            'attr-value',
-            'keyword',
-            'function',
-            'regex',
-            'important',
-            'variable',
-            'bold',
-            'entity',
-          ],
-          whitelistPatterns: [/token/, /language\-/]
-        })
-      ]
-    });
-}
-
