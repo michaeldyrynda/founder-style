@@ -49,32 +49,14 @@ if (mix.inProduction()) {
       plugins: [
         new PurgecssPlugin({
           paths: glob.sync([
-            path.join(__dirname, "source/_assets/**/*.blade.php"),
-            path.join(__dirname, "source/_layouts/**/*.blade.php")
+            path.join(__dirname, "build_production/**/*.html")
           ]),
           extractors: [
             {
               extractor: TailwindExtractor,
-              extensions: ["php"]
+              extensions: ["html"]
             }
           ],
-          whitelist: [
-            'code[class*="language-"]',
-            'pre[class*="language-"]',
-            'pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection',
-            'code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection',
-            'pre[class*="language-"]::selection, pre[class*="language-"] ::selection',
-            'code[class*="language-"]::selection, code[class*="language-"] ::selection',
-            'pre',
-            ':not(pre) > code[class*="language-"]',
-            'pre[class*="language-"]',
-            ':not(pre) > code[class*="language-"]',
-            '.namespace',
-            'code.language-diff, pre.language-diff',
-            '.language-css .token.string',
-            '.style .token.string',
-          ],
-          whitelistPatterns: [/\.token\..+/]
         })
       ]
     });
