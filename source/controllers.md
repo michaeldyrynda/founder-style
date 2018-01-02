@@ -64,3 +64,33 @@ class NotesController
     }
 }
 ```
+
+## Route Model Binding
+
+Whilst Laravel has a powerful Service Container, in terms of method injection in controller methods, it is most useful for [route model binding](https://laravel.com/docs/5.5/routing#route-model-binding).
+
+Using implicit binding out of the box, it is trivial to load the corresponding model and pass it directly to your controller, without an extra line querying the database.
+
+```php
+// routes/web.php
+Route::get('/services/{service}', 'ServicesController@show')->name('services.show');
+
+// app/Http/Controllers/ServicesController.php
+// Without route model binding
+public function show($service)
+{
+    $service = Service::findOrFail($service);
+
+    // Rest of function logic
+}
+
+// With route model binding
+public function show(Service $service)
+{
+    // $service will be an Eloquent instance based on the identifier passed
+    // in the route's {service} placeholder. If a record cannot be found
+    // Laravel will return a ModelNotFoundException and in turn a 404.
+}
+```
+
+In many cases, the default implicit binding will suffice. If you want to use a column other than the model's `id`, you can set the value using the model's `getRouteKeyName` method. For more complex lookups, can make use of explicit binding.
