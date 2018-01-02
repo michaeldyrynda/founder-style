@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <link rel="stylesheet" href="/css/main.css?id=cf53a788ae11427270b9">
+    </head>
+    <body>
+        <div class="h-screen">
+            <div class="bg-indigo-lightest flex min-h-full -mx-2">
+                <div class="w-1/5 border-r border-indigo-lighter">
+                    <h1 class="text-2xl font-medium block px-8 mt-4 mb-4">
+                        <a href="/" class="text-indigo-darker no-underline hover:no-underline">Founder</a>
+                    </h1>
+                    <hr class="block h-px w-full bg-indigo-lighter mt-2 mb-4">
+                    <ul class="px-8 mt-6 text-base">
+            <li class="leading-loose font-medium">
+            <a href="general-style">General Style</a>
+        </li>
+            <li class="leading-loose font-light">
+            <a href="docblocks-comments">Docblocks &amp; Comments</a>
+        </li>
+            <li class="leading-loose font-light">
+            <a href="conditionals">Conditionals</a>
+        </li>
+            <li class="leading-loose font-light">
+            <a href="configuration">Configuration</a>
+        </li>
+            <li class="leading-loose font-light">
+            <a href="routing">Routing</a>
+        </li>
+            <li class="leading-loose font-light">
+            <a href="controllers">Controllers</a>
+        </li>
+            <li class="leading-loose font-light">
+            <a href="views">Views</a>
+        </li>
+            <li class="leading-loose font-light">
+            <a href="validation">Validation</a>
+        </li>
+            <li class="leading-loose font-light">
+            <a href="requests">Requests</a>
+        </li>
+            <li class="leading-loose font-light">
+            <a href="eloquent">Eloquent</a>
+        </li>
+            <li class="leading-loose font-light">
+            <a href="migrations-schema">Migrations &amp; Schema</a>
+        </li>
+    </ul>
+                </div>
+                <div class="bg-white w-4/5 p-4">
+                    <div class="container w-4/5 mx-auto">
+                        <h1 class="text-2xl font-medium block mb-4 text-indigo">
+                            General Style
+                        </h1>
+                        <hr class="block h-px w-full bg-indigo-lighter text-left mt-2 mb-4">
+                        <div class="markdown">
+                            <p>At its most simple level, each Laravel project must follow the code styles set out in the <a href="http://www.php-fig.org/psr/psr-1/">PSR-1</a> and <a href="http://www.php-fig.org/psr/psr-2/">PSR-2</a> recommendations.</p>
+<p>Any variables declared within the context of your application should use <code>camelCase</code> syntax, except where noted otherwise in this guide.</p>
+<p>Always strive to keep your code expressive and human-readable.</p>
+<blockquote>
+<p>Always code as if the person who ends up maintaining your code is a violent psychopath who knows where you live. - <a href="http://wiki.c2.com/?CodeForTheMaintainer"><em>Code for the maintainer</em></a></p>
+</blockquote>
+<h2>Should I rename my application?</h2>
+<p>Laravel ships with a default <code>app:name</code> command. This guide recommends <em>never</em> renaming your application, further allowing you to reduce cognitive overhead between applications. Your fingers will thank you when you don't have to think about importing a class from the <code>App</code> namespace, when the namespace doesn't change when jumping between projects.</p>
+<h2>Whitespace</h2>
+<p>Code should always be allowed to breathe! PHP will be interpreted whether you write it with no whitespace or if you write it with double spacing. For readability, it is better to cater to your fellow developers rather than for the interpreter. Don't be afraid to use whitespace.</p>
+<pre><code class="language-php">// Good
+public function normalisePhoneNumber($input)
+{
+    $input = preg_replace('/[^0-9]+/', '', $input);
+
+    if (trim($input) === '') {
+        return '';
+    }
+
+    return $input;
+}
+
+// Bad: everything is cramped together making it hard to read
+public function normalisePhoneNumber($input)
+{
+    $input = preg_replace('/[^0-9]+/', '', $input);
+    if (trim($input) === '') {
+        return '';
+    }
+    return $input;
+}</code></pre>
+<p>Avoid extra whitespace inside conditional braces (<code>{}</code>). We want the code to breath, but there's no need to be wasteful.</p>
+<pre><code class="language-php">// Good
+if (trim($input) === '') {
+    return '';
+}
+
+// Bad
+if (trim($input) === '') {
+
+    return '';
+
+}</code></pre>                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="/js/app.js?id=670e8c263b6b71981ba9"></script>
+</html>
