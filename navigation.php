@@ -2,6 +2,7 @@
 
 return [
     'General Style' => '/general-style',
+    'Packages' => '/packages',
     'Docblocks &amp; Comments' => '/docblocks-comments',
     'Conditionals' => '/conditionals',
     'Configuration' => '/configuration',
