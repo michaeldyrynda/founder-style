@@ -5,9 +5,11 @@ title: Conditionals
 ---
 Conditionals are a common part of any application, but there are a few simple conventions you can follow which makes them easier to parse when scanning through a file.
 
-## Avoid `if`/`else` chains
+## Avoid `if`/`elseif`/`else` chains
 
-It is often clearer to return early from a method, rather than chaining one or more `else` statements. In general, handling error conditions in your `if` statement works best; it allows you to see upfront any conditions that would cause an error.
+It is often easier to reason about the execution path of conditional behaviour using [Guard Clauses](https://refactoring.com/catalog/replaceNestedConditionalWithGuardClauses.html), rather than chaining one or more `elseif` or `else` statements.
+
+In general, handling error conditions early in your conditional block works best; it allows you to see upfront any conditions that would cause an error.
 
 ```php
 // Good
