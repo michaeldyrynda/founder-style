@@ -16,6 +16,6 @@ To that end, Founder installs a few packages in addition to the Laravel defaults
 * [sentry/sentry-laravel](https://github.com/getsentry/sentry-laravel)
   * Laravel-specific integration for bug tracking platform, [Sentry](https://getsentry.com).
 * [friendsofphp/php-cs-fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer)
-  * Ensures that the code style and formatting of each project is consistent, using rules defined in the [`.php_cs` file](https://github.com/michaeldyrynda/founder/blog/master/.php_cs).
+  * Ensures that the code style and formatting of each project is consistent, using rules defined in the [`.php_cs` file](https://github.com/michaeldyrynda/founder/blob/master/.php_cs).
 * [sensiolabs/security-checker](https://github.com/sensiolabs/security-checker)
   * A command line tool that checks your application isn't using dependencies with known security vulnerabilities.
