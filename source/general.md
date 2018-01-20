@@ -7,9 +7,7 @@ At its most simple level, each Laravel project must follow the code styles set o
 
 Any variables declared within the context of your application should use `camelCase` syntax, except where noted otherwise in this guide.
 
-Always strive to keep your code expressive and human-readable.
-
-> Always code as if the person who ends up maintaining your code is a violent psychopath who knows where you live. - [*Code for the maintainer*](http://wiki.c2.com/?CodeForTheMaintainer)
+Always strive to keep your code expressive and human-readable. Make it easy for the next developer that looks at the code to be able to reason about your intent.
 
 ## Should I rename my application?
 
