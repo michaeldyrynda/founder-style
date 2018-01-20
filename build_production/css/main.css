@@ -603,6 +603,10 @@ ul {
   list-style: none;
   padding: 0;
 }
+
+ul li {
+  margin-bottom: 0.5rem;
+}
 /* http://prismjs.com/download.html?themes=prism&languages=markup+css+clike+javascript */
 /**
  * prism.js default theme for JavaScript, CSS and HTML
@@ -2744,6 +2748,7 @@ blockquote {
   border-color: #e6e8ff;
   background-color: #f8fafc;
   padding: 0.25rem;
+  font-size: .875rem;
 }
 
 @media (min-width: 576px) {

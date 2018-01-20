@@ -45,7 +45,7 @@
             <li class="leading-loose font-light">
             <a href="/validation">Validation</a>
         </li>
-            <li class="leading-loose font-light">
+            <li class="leading-loose font-medium">
             <a href="/eloquent">Eloquent</a>
         </li>
             <li class="leading-loose font-light">
@@ -62,24 +62,26 @@
                 <div class="bg-white w-full md:w-4/5 p-4">
                     <div class="container w-full px-4 md:w-4/5 md:px-none mx-auto">
                         <h1 class="text-2xl font-medium block mb-4 text-indigo">
-                            Style Guide
+                            Eloquent
                         </h1>
                         <hr class="block h-px w-full bg-indigo-lighter text-left mt-2 mb-4">
                         <div class="markdown">
-                            <h2>Introduction</h2>
-<p>This guide provides a set of styles and conventions to follow for each Laravel project you undertake.</p>
-<p>It helps to maintain a level of consistency between projects and reduce cognitive overhead needed when switching between projects.</p>
-<p>This style guide also serves to make it simpler to onboard new developers into existing projects.</p>
-<p>The guide is designed to change over time, as new patterns emerge and teams expand, taking into account new perspectives. This guide aims to reflect styles and conventions for the current version of Laravel at all times.</p>
-<h2>Why Laravel?</h2>
-<p>At its core, Laravel provides a set of conventions that allow you to developer your applications quickly, whilst keeping the syntax simple and readable.</p>
-<p>Along with its simple syntax, are a number of conventions and features that really allow you to focus on building your application, without worrying about all of the boilerplate things you'd ordinarily go through when building an application from scratch. This includes things like managing your database schema with <a href="/migrations-schema">migrations</a> and working with the database using <a href="/eloquent">Eloquent</a>.</p>
-<p>Simply put, <a href="https://laravel.com">Laravel</a> gives you all of the tools to build a modern web application right from your first <code>composer install</code>. Be warned, though: try and follow the framework's conventions wherever possible to save yourself headaches in future.</p>
-<h2>A starter application</h2>
-<p><a href="https://github.com/michaeldyrynda/founder">Founder</a> provides you with a Laravel starter application that builds from the one you will find in the <a href="https://github.com/laravel/laravel">Laravel</a> repository. It takes the base Laravel application and applies some of the styles and conventions that are talked about throughout this style guide.</p>
-<p>Getting started with Founder is simple with <a href="https://getcomposer.org">Composer</a>.</p>
-<pre><code>composer create-project --prefer-dist dyrynda/founder my-project-name</code></pre>
-<p>This will fetch a copy of the Founder project, place it on the <code>my-project-name</code> directory, and install the project dependencies, ready for you to get started.</p>                        </div>
+                            <p>The base model has one purpose out of the box; it sets the <code>$guarded</code> property to an empty array. This means you can avoid those situations where you forgot to update the <code>$fillable</code> property and were hit with a <code>MassAssignmentException</code>.</p>
+<p>You are of course free to modify this base model to encapsulate any funtionality you require in all of your application's models on a per-application basis.</p>
+<p>It is important that you <strong><em>never</em></strong> pass <code>request()-&gt;all()</code> into any of your models' methods that allow mass assignment, such as <code>create</code> or <code>update</code>. <em>Always</em> use <code>request()-&gt;only()</code> to ensure only desired input is being passed into your models, irrespective of what was in the request. Explicit safety, right in your controllers - rather than the implicit and somewhat hidden safety of the <code>$fillable</code> property.</p>
+<h2>Formatting <a href="#formatting" name="formatting" class="text-grey">#</a></h2>
+<p>The PSR-2 styles that are used with Founder define the order various components should be defined within a class. In the specific case of Eloquent models, the following convention should be used for ordering.</p>
+<ul>
+<li>&bull; <code>use</code> statements (traits)</li>
+<li>&bull; Properties, with framework-defined properties taking precedence over application-defined ones</li>
+<li>&bull; Magic methods</li>
+<li>&bull; <code>boot</code> method</li>
+<li>&bull; Named (static) constructors</li>
+<li>&bull; Query scopes</li>
+<li>&bull; Mutators and accessors (grouping each mutator / accessor pair)</li>
+</ul>
+<h2>Abstracting relationships <a href="#abstracting-relationships" name="abstracting-relationships" class="text-grey">#</a></h2>
+<p>As outlined in the <a href="/general#dont-talk-to-strangers">general docs</a>, wherever possible encapsulate any relationship methods for create and update operations behind specific methods. Encapsulating this logic prevents the implementation details from leaking into your controllers.</p>                        </div>
                     </div>
                 </div>
             </div>

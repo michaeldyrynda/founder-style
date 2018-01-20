@@ -39,7 +39,7 @@
             <li class="leading-loose font-light">
             <a href="/controllers">Controllers</a>
         </li>
-            <li class="leading-loose font-light">
+            <li class="leading-loose font-medium">
             <a href="/views">Views</a>
         </li>
             <li class="leading-loose font-light">
@@ -62,24 +62,51 @@
                 <div class="bg-white w-full md:w-4/5 p-4">
                     <div class="container w-full px-4 md:w-4/5 md:px-none mx-auto">
                         <h1 class="text-2xl font-medium block mb-4 text-indigo">
-                            Style Guide
+                            Views
                         </h1>
                         <hr class="block h-px w-full bg-indigo-lighter text-left mt-2 mb-4">
                         <div class="markdown">
-                            <h2>Introduction</h2>
-<p>This guide provides a set of styles and conventions to follow for each Laravel project you undertake.</p>
-<p>It helps to maintain a level of consistency between projects and reduce cognitive overhead needed when switching between projects.</p>
-<p>This style guide also serves to make it simpler to onboard new developers into existing projects.</p>
-<p>The guide is designed to change over time, as new patterns emerge and teams expand, taking into account new perspectives. This guide aims to reflect styles and conventions for the current version of Laravel at all times.</p>
-<h2>Why Laravel?</h2>
-<p>At its core, Laravel provides a set of conventions that allow you to developer your applications quickly, whilst keeping the syntax simple and readable.</p>
-<p>Along with its simple syntax, are a number of conventions and features that really allow you to focus on building your application, without worrying about all of the boilerplate things you'd ordinarily go through when building an application from scratch. This includes things like managing your database schema with <a href="/migrations-schema">migrations</a> and working with the database using <a href="/eloquent">Eloquent</a>.</p>
-<p>Simply put, <a href="https://laravel.com">Laravel</a> gives you all of the tools to build a modern web application right from your first <code>composer install</code>. Be warned, though: try and follow the framework's conventions wherever possible to save yourself headaches in future.</p>
-<h2>A starter application</h2>
-<p><a href="https://github.com/michaeldyrynda/founder">Founder</a> provides you with a Laravel starter application that builds from the one you will find in the <a href="https://github.com/laravel/laravel">Laravel</a> repository. It takes the base Laravel application and applies some of the styles and conventions that are talked about throughout this style guide.</p>
-<p>Getting started with Founder is simple with <a href="https://getcomposer.org">Composer</a>.</p>
-<pre><code>composer create-project --prefer-dist dyrynda/founder my-project-name</code></pre>
-<p>This will fetch a copy of the Founder project, place it on the <code>my-project-name</code> directory, and install the project dependencies, ready for you to get started.</p>                        </div>
+                            <p>Views are a means for displaying your data. You should always strive to keep any logic and calculations out of your views at all times, instead carrying out all of this implementation in your controllers.</p>
+<p>Focussing on ensuring your views are responsible for displaying data only, allows them to remain light and simple to reason about.</p>
+<p>Although Laravel supports templating with plain PHP files, Laravel's Blade templating engine is simple and powerful. It provides control structures that allow you to iterate over arrays of data that you might return from your database, conditionally display content, inherit from and extend other layouts, and even abstract reusable components.</p>
+<h2>Naming and usage <a href="#naming-and-usage" name="naming-and-usage" class="text-grey">#</a></h2>
+<p>View files must be <code>camelCase</code>.</p>
+<p>View files should be named alongside your routes, wherever possible. It's easier to locate the view file for the <code>users.index</code> route if it is in <code>resources/views/users/index.blade.php</code> and not called <code>accounts.blade.php</code> or <code>userIndex.blade.php</code>.</p>
+<pre><code class="language-php">class UsersController
+{
+    public function index()
+    {
+        return view('users.index');
+    }
+}</code></pre>
+<pre><code>resources/
+  views/
+    users/
+      index.blade.php</code></pre>
+<h2>Blade Templates <a href="#blade-templates" name="blade-templates" class="text-grey">#</a></h2>
+<p>Always use four spaces for indentation.</p>
+<pre><code class="language-html">&lt;ul&gt;
+    &lt;li&gt;&lt;a href="{{ route('users.show', $user) }}"&gt;Michael Dyrynda&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+<p>Control structures should not be surrounded by, or contain spaces.</p>
+<pre><code>// Good
+@if($condition)
+    Something good
+@endif
+
+// Bad
+@if ($condition)
+    Something bad
+@elseif ( $someOtherCondition )
+    Also bad
+@endif</code></pre>
+<p>When working HTML elements that have many attributes, align the attributes one under the other for easier readability. Ensure the closing bracket sits on it's own line, underneath the opening tag's opening bracket. This also aims to reduce unnecessary changes in version control if you were to change the last</p>
+<pre><code class="language-html">&lt;a href="/users/1"
+   class="no-underline hover:underline text-indigo"
+   title="View user Michael Dyrynda"
+&gt;
+    Michael Dyrynda
+&lt;/a&gt;</code></pre>                        </div>
                     </div>
                 </div>
             </div>
