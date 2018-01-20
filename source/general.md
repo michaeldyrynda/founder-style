@@ -1,7 +1,7 @@
 ---
 extends: _layouts.master
 section: content
-title: General Style
+title: General
 ---
 At its most simple level, each Laravel project must follow the code styles set out in the [PSR-1](http://www.php-fig.org/psr/psr-1/) and [PSR-2](http://www.php-fig.org/psr/psr-2/) recommendations. Project style is maintained by a [`.php_cs`](https://github.com/michaeldyrynda/founder/blob/master/.php_cs) configuration file, in combination with the [friendsofphp/php-cs-fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer) project. You can run this configuration via Composer using `composer run-script fix-cs`.
 

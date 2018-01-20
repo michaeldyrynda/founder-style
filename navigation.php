@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'General Style' => '/general-style',
+    'General' => '/general',
     'Packages' => '/packages',
     'Docblocks &amp; Comments' => '/docblocks-comments',
     'Conditionals' => '/conditionals',
