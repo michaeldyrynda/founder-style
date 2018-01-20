@@ -11,7 +11,6 @@ return [
     'Controllers' => '/controllers',
     'Views' => '/views',
     'Validation' => '/validation',
-    'Requests' => '/requests',
     'Eloquent' => '/eloquent',
     'Migrations &amp; Schema' => '/migrations-schema',
 ];
