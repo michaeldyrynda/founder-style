@@ -58,3 +58,51 @@ if (trim($input) === '') {
 
 }
 ```
+
+## Exceptions
+
+Exceptions are a good way to control the flow of your code and provide detailed and descriptive error messages to developers.
+
+When you inline exceptions in your code, it's difficult to see various error cases as they may be split across different files, which in turn makes it harder to see why you're raising exceptions in the first place.
+
+```php
+public function index()
+{
+    if ($this->invalidStep(request('step'))) {
+        throw new RuntimeException(
+            vsprintf('The step [%s] is invalid. Valid steps are: %s', [
+                request('step'),
+                $this->validSteps()->implode(', '),
+            ])
+        );
+    }
+
+    // ...
+}
+```
+
+Placing exception messages behind static methods on custom exception classes allows you to keep your code clear and concise, hiding the implementation detail i.e. the precise message and formatting in a class specifically responsible for that behaviour.
+
+```php
+// SignupException.php
+class SignupException extends RuntimeException
+{
+    public static function invalidStep($step, $validSteps)
+    {
+        return new static(vsprintf('The step [%s] is invalid. Valid steps are: %s', [
+            request('step'),
+            $this->validSteps()->implode(', '),
+        ]));
+    }
+}
+
+// SignupsController.php
+public function index()
+{
+    if ($this->invalidStep(request('step'))) {
+        throw SignupException::invalidStep(request('step'), $this->validSteps());
+    }
+}
+```
+
+Co-locating messages inside your custom exception classes makes it not only easier to track each message and its formatting, but also to determine when an exceptions messages start to drift apart in focus, allowing you to split them up into new exception classes with a narrower focus and more concise API.
