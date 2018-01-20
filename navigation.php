@@ -2,6 +2,7 @@
 
 return [
     'General' => '/general',
+    'Production' => '/production',
     'Packages' => '/packages',
     'Docblocks &amp; Comments' => '/docblocks-comments',
     'Conditionals' => '/conditionals',
