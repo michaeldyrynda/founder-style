@@ -11,11 +11,13 @@ To that end, Founder installs a few packages in addition to the Laravel defaults
 
 * [dyrynda/laravel-make-user](https://github.com/michaeldyrynda/laravel-make-user)
   * Many of our apps are internally facing, so there is no public registration. This package makes adding your first - typically admin - user a cinch.
-* [laracasts/flash](https://github.com/laracasts/flash)
-  * A package to handle displaying notification messages within your application.
-* [sentry/sentry-laravel](https://github.com/getsentry/sentry-laravel)
-  * Laravel-specific integration for bug tracking platform, [Sentry](https://getsentry.com).
 * [friendsofphp/php-cs-fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer)
   * Ensures that the code style and formatting of each project is consistent, using rules defined in the [`.php_cs` file](https://github.com/michaeldyrynda/founder/blob/master/.php_cs).
+* [laracasts/flash](https://github.com/laracasts/flash)
+  * A package to handle displaying notification messages within your application.
+* [laravel/horizon](https://github.com/laravel/horizon)
+  * Horizon provides a beautiful dashboard and code-driven configuration for your Laravel powered Redis queues. Horizon allows you to easily monitor key metrics of your queue system such as job throughput, runtime, and job failures.
+* [sentry/sentry-laravel](https://github.com/getsentry/sentry-laravel)
+  * Laravel-specific integration for bug tracking platform, [Sentry](https://getsentry.com).
 * [sensiolabs/security-checker](https://github.com/sensiolabs/security-checker)
   * A command line tool that checks your application isn't using dependencies with known security vulnerabilities.
