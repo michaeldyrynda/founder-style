@@ -104,3 +104,53 @@ public function index()
 ```
 
 Co-locating messages inside your custom exception classes makes it not only easier to track each message and its formatting, but also to determine when an exceptions messages start to drift apart in focus, allowing you to split them up into new exception classes with a narrower focus and more concise API.
+
+## Don't talk to strangers
+
+The [Law of Demeter](https://en.wikipedia.org/wiki/Law_of_Demeter) is a particularly useful design guideline that helps you to design more concise APIs. Consider the following Eloquent model.
+
+```php
+class Post extends Model
+{
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+}
+```
+
+When a new `Comment` is added to a `Post` you might write something along the following lines in your controller.
+
+```php
+// PostCommentsController.php
+public function store(Post $post)
+{
+    $post->comments()->create([
+        'author_id' => auth()->id(),
+        'comment' => request('comment'),
+    ]);
+
+    return redirect()->route('posts.show', $post);
+}
+```
+
+The Law of Demeter helps to decouple your code by encouraging you to ensure each unit only has limited knowledge of other units. That is to say that your controller should not need to know how to reach through the `Post` model in order to create a new `Comment`. Instead, consider abstracting this functionality behind a new method. Hiding this information helps your controller assume as little as possible about how a `Post` and `Comment` would be related.
+
+```php
+// Post.php
+public function addComment($comment)
+{
+    $this->comments()->create([
+        'author_id' => $author->id,
+        'comment' => $comment,
+    ]);
+}
+
+// PostCommentsController.php
+public function store(Post $post)
+{
+    $post->addComment(auth()->user(), request('comment'));
+
+    return redirect()->route('posts.show', $post);
+}
+```
