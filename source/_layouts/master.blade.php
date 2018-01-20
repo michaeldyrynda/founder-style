@@ -8,16 +8,22 @@
     </head>
     <body>
         <div class="h-screen">
-            <div class="bg-indigo-lightest flex min-h-full -mx-2">
-                <div class="w-1/5 border-r border-indigo-lighter">
+            <div class="flex flex-col-reverse md:flex-row bg-indigo-lightest md:min-h-full -mx-2">
+                <div class="flex-grow w-full md:w-1/5 border-r border-indigo-lighter">
                     <h1 class="text-2xl font-medium block px-8 mt-4 mb-4">
                         <a href="/" class="text-indigo-darker no-underline hover:no-underline">Founder</a>
                     </h1>
                     <hr class="block h-px w-full bg-indigo-lighter mt-2 mb-4">
                     @include('_layouts.navigation')
+                    <hr class="block md:hidden h-px w-full bg-indigo-lighter mt-2 mb-4">
+                    <div class="mb-4 md:absolute md:pin-b md:pin-l md:ml-4 md:mb-2">
+                        <a href="https://github.com/michaeldyrynda/founder-style" target="_blank" class="text-base font-light px-8 md:px-2">
+                            GitHub
+                        </a>
+                    </div>
                 </div>
-                <div class="bg-white w-4/5 p-4">
-                    <div class="container w-4/5 mx-auto">
+                <div class="bg-white w-full md:w-4/5 p-4">
+                    <div class="container w-full px-4 md:w-4/5 md:px-none mx-auto">
                         <h1 class="text-2xl font-medium block mb-4 text-indigo">
                             {{ $page->title }}
                         </h1>
