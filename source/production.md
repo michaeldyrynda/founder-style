@@ -4,7 +4,7 @@ section: content
 title: Production
 ---
 
-## Forge deployment
+## Forge deployment <a href="#forge-deployment" name="forge-deployment" class="text-grey">#</a>
 
 When deploying applications with [Laravel Forge](https://forge.laravel.com) for the first time, do not select *Install Composer Dependencies*.
 
@@ -31,7 +31,7 @@ then
 fi
 ```
 
-## Laravel Horizon
+## Laravel Horizon <a href="#laravel-horizon" name="laravel-horizon" class="text-grey">#</a>
 
 All Forge-managed servers ship with Redis running by default, so it makes sense to use Redis for caching, sessions, and queues. Using Horizon, you will also get a dashboard, which you can use to monitor and retry your application jobs with ease.
 

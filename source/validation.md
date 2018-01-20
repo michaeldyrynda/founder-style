@@ -19,7 +19,7 @@ request()->validate([
 ]);
 ```
 
-## Simple custom validation rules
+## Simple custom validation rules <a href="#simple-custom-validation-rules" name="simple-custom-validation-rules" class="text-grey">#</a>
 
 When declaring simple validation rules, always use `snake_case`.
 

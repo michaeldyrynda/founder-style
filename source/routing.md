@@ -16,7 +16,7 @@ Route::get('my-endpoint', 'MyEndpointController@index')->name('myEndpoint');
 </a>
 ```
 
-## Route declaration
+## Route declaration <a href="#route-declaration" name="route-declaration" class="text-grey">#</a>
 
 When declaring routes in your application, be sure to always define the HTTP verb first. This makes it much easier to visually scan the routes file.
 

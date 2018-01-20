@@ -9,7 +9,7 @@ Focussing on ensuring your views are responsible for displaying data only, allow
 
 Although Laravel supports templating with plain PHP files, Laravel's Blade templating engine is simple and powerful. It provides control structures that allow you to iterate over arrays of data that you might return from your database, conditionally display content, inherit from and extend other layouts, and even abstract reusable components.
 
-## Naming and usage
+## Naming and usage <a href="#naming-and-usage" name="naming-and-usage" class="text-grey">#</a>
 
 View files must be `camelCase`.
 
@@ -32,7 +32,7 @@ resources/
       index.blade.php
 ```
 
-## Blade Templates
+## Blade Templates <a href="#blade-templates" name="blade-templates" class="text-grey">#</a>
 
 Always use four spaces for indentation.
 

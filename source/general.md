@@ -9,11 +9,11 @@ Any variables declared within the context of your application should use `camelC
 
 Always strive to keep your code expressive and human-readable. Make it easy for the next developer that looks at the code to be able to reason about your intent.
 
-## Should I rename my application?
+## Should I rename my application? <a href="#should-i-rename-my-application" name="should-i-rename-my-application" class="text-grey">#</a>
 
 Laravel ships with a default `app:name` command. This guide recommends *never* renaming your application, further allowing you to reduce cognitive overhead between applications. Your fingers will thank you when you don't have to think about importing a class from the `App` namespace, when the namespace doesn't change when jumping between projects.
 
-## Whitespace
+## Whitespace <a href="#whitespace" name="whitespace" class="text-grey">#</a>
 
 Code should always be allowed to breathe! PHP will be interpreted whether you write it with no whitespace or if you write it with double spacing. For readability, it is better to cater to your fellow developers rather than for the interpreter. Don't be afraid to use whitespace.
 
@@ -57,7 +57,7 @@ if (trim($input) === '') {
 }
 ```
 
-## Exceptions
+## Exceptions <a href="#exceptions" name="exceptions" class="text-grey">#</a>
 
 Exceptions are a good way to control the flow of your code and provide detailed and descriptive error messages to developers.
 
@@ -105,7 +105,7 @@ public function index()
 
 Co-locating messages inside your custom exception classes makes it not only easier to track each message and its formatting, but also to determine when an exceptions messages start to drift apart in focus, allowing you to split them up into new exception classes with a narrower focus and more concise API.
 
-## Don't talk to strangers
+## Don't talk to strangers <a href="#dont-talk-to-strangers" name="dont-talk-to-strangers" class="text-grey">#</a>
 
 The [Law of Demeter](https://en.wikipedia.org/wiki/Law_of_Demeter) is a particularly useful design guideline that helps you to design more concise APIs. Consider the following Eloquent model.
 

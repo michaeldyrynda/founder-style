@@ -19,7 +19,7 @@ class ServiceController
 }
 ```
 
-## RESTful controllers
+## RESTful controllers <a href="#restful-controllers" name="restful-controllers" class="text-grey">#</a>
 
 Always strive to stick with the seven RESTful actions in your controllers: `index`, `create`, `store`, `show`, `edit`, `update`, and `destroy`. When you keep your controllers to these actions, they're easier to read and more closely adhere to a single responsibility mindset.
 
@@ -27,7 +27,7 @@ Don't be afraid to add a few resource-specific methods to your controller, but i
 
 [Adam Wathan](https://twitter.com/adamwathan) gave an [excellent talk](https://youtu.be/MF0jFKvS4SI) at Laracon US 2017 that expands on this concept in greater detail.
 
-## Authorisation
+## Authorisation <a href="#authorisation" name="authorisation" class="text-grey">#</a>
 
 In most cases, authorisation for a controller action should be the first action carried out in your controllers, enabling you to return early without processing logic an unauthorised user doesn't have access to.
 
@@ -43,7 +43,7 @@ class ServicesController
 }
 ```
 
-## Validation
+## Validation <a href="#validation" name="validation" class="text-grey">#</a>
 
 When building an application, it is preferable to handle your request validation inside your controller methods until either size or complexity dictates that you extract to a [form request](https://laravel.com/docs/5.5/validation#form-request-validation). Practise [YAGNI](https://martinfowler.com/bliki/Yagni.html).
 
@@ -65,7 +65,7 @@ class NotesController
 }
 ```
 
-## Route Model Binding
+## Route Model Binding  <a href="#route-model-binding" name="route-model-binding" class="text-grey">#</a>
 
 Whilst Laravel has a powerful Service Container, in terms of method injection in controller methods, it is most useful for [route model binding](https://laravel.com/docs/5.5/routing#route-model-binding).
 
