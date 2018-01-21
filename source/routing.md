@@ -3,7 +3,8 @@ extends: _layouts.master
 section: content
 title: Routing
 ---
-All application routes must use kebab-case, all route names must use `camelCase`.
+
+All application routes must use kebab-case and all route names must use `camelCase`.
 
 ```php
 // http://example.com/my-endpoint
@@ -16,7 +17,7 @@ Route::get('my-endpoint', 'MyEndpointController@index')->name('myEndpoint');
 </a>
 ```
 
-## Route declaration <a href="#route-declaration" name="route-declaration" class="text-grey">#</a>
+## Route declaration <a class="text-grey" name="route-declaration" href="#route-declaration">#</a>
 
 When declaring routes in your application, be sure to always define the HTTP verb first. This makes it much easier to visually scan the routes file.
 

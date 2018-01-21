@@ -3,19 +3,20 @@ extends: _layouts.master
 section: content
 title: General
 ---
-At its most simple level, each Laravel project must follow the code styles set out in the [PSR-1](http://www.php-fig.org/psr/psr-1/) and [PSR-2](http://www.php-fig.org/psr/psr-2/) recommendations. Project style is maintained by a [`.php_cs`](https://github.com/michaeldyrynda/founder/blob/master/.php_cs) configuration file, in combination with the [friendsofphp/php-cs-fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer) project. You can run this configuration via Composer using `composer run-script fix-cs`.
 
-Any variables declared within the context of your application should use `camelCase` syntax, except where noted otherwise in this guide.
+At the most simple level, each Laravel project must follow the code styles set out in the [PSR-1](http://www.php-fig.org/psr/psr-1/) and [PSR-2](http://www.php-fig.org/psr/psr-2/) recommendations. Project style is maintained by a [`.php_cs`](https://github.com/michaeldyrynda/founder/blob/master/.php_cs) configuration file, in combination with the [friendsofphp/php-cs-fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer) project. You can run the fixer manually via Composer using `composer run-script fix-cs`.
 
-Always strive to keep your code expressive and human-readable. Make it easy for the next developer that looks at the code to be able to reason about your intent.
+Any variables declared within the context of your application must use `camelCase` syntax, except where noted otherwise in this guide.
 
-## Should I rename my application? <a href="#should-i-rename-my-application" name="should-i-rename-my-application" class="text-grey">#</a>
+Always strive to keep your code expressive and human-readable. Make it easy for the next developer that looks at the code to be able to reason about your intent. Realise that that developer could well be you trying to fix an issue at 4pm on a Friday, six months from now.
 
-Laravel ships with a default `app:name` command. This guide recommends *never* renaming your application, further allowing you to reduce cognitive overhead between applications. Your fingers will thank you when you don't have to think about importing a class from the `App` namespace, when the namespace doesn't change when jumping between projects.
+## Should I rename my application? <a class="text-grey" name="should-i-rename-my-application" href="#should-i-rename-my-application">#</a>
 
-## Whitespace <a href="#whitespace" name="whitespace" class="text-grey">#</a>
+Laravel ships with an `app:name` command. *Never* renaming your application. This reduces cognitive overhead between applications such that you can always import your application's classes from the `App` namespace, when the namespace doesn't change when jumping between projects.
 
-Code should always be allowed to breathe! PHP will be interpreted whether you write it with no whitespace or if you write it with double spacing. For readability, it is better to cater to your fellow developers rather than for the interpreter. Don't be afraid to use whitespace.
+## Whitespace <a class="text-grey" name="whitespace" href="#whitespace">#</a>
+
+PHP will be interpreted whether you write it with no whitespace or if you write it with double spacing. For readability, it is better to cater to your fellow developers rather than for the PHP interpreter. Don't be afraid to use whitespace.
 
 ```php
 // Good
@@ -57,11 +58,11 @@ if (trim($input) === '') {
 }
 ```
 
-## Exceptions <a href="#exceptions" name="exceptions" class="text-grey">#</a>
+## Exceptions <a class="text-grey" name="exceptions" href="#exceptions">#</a>
 
 Exceptions are a good way to control the flow of your code and provide detailed and descriptive error messages to developers.
 
-When you inline exceptions in your code, it's difficult to see various error cases as they may be split across different files, which in turn makes it harder to see why you're raising exceptions in the first place.
+When you inline exceptions in your code, it can quickly become difficult to understand all the possible error cases as they may be split across different files, which in turn makes it harder to see why you might be raising exceptions wholistically.
 
 ```php
 public function index()
@@ -105,9 +106,11 @@ public function index()
 
 Co-locating messages inside your custom exception classes makes it not only easier to track each message and its formatting, but also to determine when an exceptions messages start to drift apart in focus, allowing you to split them up into new exception classes with a narrower focus and more concise API.
 
-## Don't talk to strangers <a href="#dont-talk-to-strangers" name="dont-talk-to-strangers" class="text-grey">#</a>
+Learn more about [formatting exception messages](http://rosstuck.com/formatting-exception-messages) from [Ross Tuck](https://twitter.com/rosstuck).
 
-The [Law of Demeter](https://en.wikipedia.org/wiki/Law_of_Demeter) is a particularly useful design guideline that helps you to design more concise APIs. Consider the following Eloquent model.
+## Don't talk to strangers <a class="text-grey" name="dont-talk-to-strangers" href="#dont-talk-to-strangers">#</a>
+
+The [Law of Demeter](https://en.wikipedia.org/wiki/Law_of_Demeter) is a particularly useful design guideline that helps you to build more concise APIs. Consider the following Eloquent model.
 
 ```php
 class Post extends Model
@@ -134,7 +137,9 @@ public function store(Post $post)
 }
 ```
 
-The Law of Demeter helps to decouple your code by encouraging you to ensure each unit only has limited knowledge of other units. That is to say that your controller should not need to know how to reach through the `Post` model in order to create a new `Comment`. Instead, consider abstracting this functionality behind a new method. Hiding this information helps your controller assume as little as possible about how a `Post` and `Comment` would be related.
+The Law of Demeter helps to decouple your code by encouraging you to ensure that each unit only has limited knowledge of other units. That is to say that your controller should not need to know how specifically a `Comment` is added to a `Post`.
+
+Instead, consider abstract this implementation detail behind a new method. In doing so, your controller needn't know how a `Post` and `Comment` would be related, and if the implementation changes, the call to do so doesn't. SOLID!
 
 ```php
 // Post.php

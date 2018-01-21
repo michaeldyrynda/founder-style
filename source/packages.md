@@ -3,12 +3,17 @@ extends: _layouts.master
 section: content
 title: Packages
 ---
-Since the arrival of [Composer](https://getcomposer.org), the days of copying and pasting code between projects are long gone.
 
-Not only have Composer and [Packagist](https://packagist.org) made it very simple for you to share your own code between your projects, but also so save yourself time by pulling in packages that other developers have written all over the world, so that you can focus on solving your business-specific goals.
+Since the arrival of [Composer](https://getcomposer.org), copying and pasting code between projects is a thing of the past.
 
-To that end, Founder installs a few packages in addition to the Laravel defaults that solve problems that are encountered in many of the projects that are spun up regularly. The goal of Founder is not, however, to include the kitchen sink. Of course, you are free to add, change, and remove any packages from the [`composer.json` file](https://github.com/michaeldyrynda/founder/blob/master/composer.json) as you see fit.
+Not only have Composer and [Packagist](https://packagist.org) made it very simple for you to share your own code between your projects, they have also help you to save time by pulling in packages that other developers have written, so that you can focus on achieving your application-specific goals.
 
+To that end, Founder installs a few packages in addition to the Laravel defaults that solve problems that are encountered in many of the most applications. The goal of Founder is not, however, to include the kitchen sink.
+
+You are of course free to add, change, and remove any packages from the [`composer.json` file](https://github.com/michaeldyrynda/founder/blob/master/composer.json) as you see fit.
+
+* [barryvdh/laravel-debugbar](https://github.com/barryvdh/laravel-debugbar) (*dev only*)
+ * A Laravel-specific implementation for DebugBar, which can display profiling data from any part of your application. Installed only with dev dependencies and displayed only when `APP_DEBUG=true`.
 * [dyrynda/laravel-make-user](https://github.com/michaeldyrynda/laravel-make-user)
   * Many of our apps are internally facing, so there is no public registration. This package makes adding your first - typically admin - user a cinch.
 * [friendsofphp/php-cs-fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer)

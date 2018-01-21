@@ -3,9 +3,10 @@ extends: _layouts.master
 section: content
 title: Docblocks & Comments
 ---
+
 Whilst docblocks can be useful for introducing new developers in your codebase to your functions, it is much too easy for them to fall out of sync with your actual implementation if you're not careful. Avoid them wherever possible by writing expressive code.
 
-**Never** leave code commented out in your codebase. Your version control system is responsible for handling code that was - or should be - deleted.
+**Never** leave commented out code in your application. Your version control system is responsible for handling code that was - or should be - deleted.
 
 Comments that describe the purpose of some method are usually a good indicator that the method is not clearly named.
 
@@ -77,7 +78,7 @@ class Service
 }
 ```
 
-When necessary, however, always use the fully-qualified class name in your docblocks.
+When necessary, always use the fully-qualified class name in your docblocks.
 
 ```php
 // Good

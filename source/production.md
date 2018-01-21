@@ -4,11 +4,11 @@ section: content
 title: Production
 ---
 
-## Forge deployment <a href="#forge-deployment" name="forge-deployment" class="text-grey">#</a>
+## Forge deployment <a class="text-grey" name="forge-deployment" href="#forge-deployment">#</a>
 
 When deploying applications with [Laravel Forge](https://forge.laravel.com) for the first time, do not select *Install Composer Dependencies*.
 
-Be sure to keep any of your production environment configuration variables up to date in the [`.env.production.example` file](https://github.com/michaeldyrynda/founder/blob/master/.env.production.example), which you can copy into your application's environment using the Forge environment interface.
+Be sure to keep any of your production environment configuration variables up to date in the [`.env.production.example` file](https://github.com/michaeldyrynda/founder/blob/master/.env.production.example), which you can copy into your application's environment using the Forge interface.
 
 The following deployment script should be used on a PHP 7.1 host, and can be executed once the application repository has been installed by clicking on the *Deploy Now* button.
 
@@ -31,15 +31,17 @@ then
 fi
 ```
 
-## Laravel Horizon <a href="#laravel-horizon" name="laravel-horizon" class="text-grey">#</a>
+## Laravel Horizon <a class="text-grey" name="laravel-horizon" href="#laravel-horizon">#</a>
 
-All Forge-managed servers ship with Redis running by default, so it makes sense to use Redis for caching, sessions, and queues. Using Horizon, you will also get a dashboard, which you can use to monitor and retry your application jobs with ease.
+All Forge-managed servers ship with Redis running by default. Using Horizon to manage your queues, you will also get a dashboard, which you can use to monitor and retry your application jobs with ease.
 
 The default configuration for Horizon - found in `config/horizon.php` - should be suitable in most instances. Consult the Horizon [documentation](https://laravel.com/docs/5.5/horizon) should changes be necessary.
 
-In a default Horizon installation, the dashboard will be unavailable in production. Founder modifies this behaviour, which allows any authenticated user access to the dashboard. This should be reviewed on a per-application basis. This can be reviewed in `app/Providers/AppServiceProvider.php`.
+In a default Horizon installation, the dashboard will be unavailable in production. Founder modifies this behaviour to allow any authenticated user access to the dashboard. This should be reviewed on a per-application basis in the [`app/Providers/AppServiceProvider.php` file](https://github.com/michaeldyrynda/founder/blob/master/app/Providers/AppServiceProvider.php).
 
-Once your application has been installed, be sure to set up the daemon which ensures the service is running. Go to your server in Forge and click on *Daemons*.
+Once your application has been installed, be sure to set up the daemon which keeps the Horizon service is running.
+
+Go to your server in Forge and click on *Daemons*.
 
 <img src="/images/horizon-config.png" class="mx-auto" alt="Horizon daemon config">
 

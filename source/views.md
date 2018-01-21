@@ -3,15 +3,14 @@ extends: _layouts.master
 section: content
 title: Views
 ---
-Views are a means for displaying your data. You should always strive to keep any logic and calculations out of your views at all times, instead carrying out all of this implementation in your controllers.
 
-Focussing on ensuring your views are responsible for displaying data only, allows them to remain light and simple to reason about.
+Views are a means for displaying your data. You should always strive to keep any logic and calculations out of your views at all times, instead carrying out all of this implementation in your controllers. This leaves your views slim and simple to reason about.
 
 Although Laravel supports templating with plain PHP files, Laravel's Blade templating engine is simple and powerful. It provides control structures that allow you to iterate over arrays of data that you might return from your database, conditionally display content, inherit from and extend other layouts, and even abstract reusable components.
 
-## Naming and usage <a href="#naming-and-usage" name="naming-and-usage" class="text-grey">#</a>
+## Naming and usage <a class="text-grey" name="naming-and-usage" href="#naming-and-usage">#</a>
 
-View files must be `camelCase`.
+View filenames must be `camelCase`.
 
 View files should be named alongside your routes, wherever possible. It's easier to locate the view file for the `users.index` route if it is in `resources/views/users/index.blade.php` and not called `accounts.blade.php` or `userIndex.blade.php`.
 
@@ -32,7 +31,7 @@ resources/
       index.blade.php
 ```
 
-## Blade Templates <a href="#blade-templates" name="blade-templates" class="text-grey">#</a>
+## Blade Templates <a class="text-grey" name="blade-templates" href="#blade-templates">#</a>
 
 Always use four spaces for indentation.
 
@@ -58,11 +57,17 @@ Control structures should not be surrounded by, or contain spaces.
 @endif
 ```
 
-When working HTML elements that have many attributes, align the attributes one under the other for easier readability. Ensure the closing bracket sits on it's own line, underneath the opening tag's opening bracket. This also aims to reduce unnecessary changes in version control if you were to change the last
+## HTML Attributes <a class="text-grey" name="html-attributes" href="#html-attributes">#</a>
+
+HTML attributes should always be written in the same order as described in [Mark Otto's](https://twitter.com/mdo) [code guide](http://codeguide.co/#html-attribute-order).
+
+When working with HTML elements that have many attributes, align the attributes one under the other for easier readability. Ensure the closing bracket sits on it's own line, underneath the opening tag's opening bracket.
+
+This also aims to reduce unnecessary changes in version control if you were to change the last
 
 ```html
-<a href="/users/1"
-   class="no-underline hover:underline text-indigo"
+<a class="no-underline hover:underline text-indigo"
+   href="/users/1"
    title="View user Michael Dyrynda"
 >
     Michael Dyrynda

@@ -3,6 +3,7 @@ extends: _layouts.master
 section: content
 title: Controllers
 ---
+
 Controllers that are responsible for managing a resource must use the plural version of the resource in their name.
 
 ```php
@@ -19,17 +20,19 @@ class ServiceController
 }
 ```
 
-## RESTful controllers <a href="#restful-controllers" name="restful-controllers" class="text-grey">#</a>
+## RESTful controllers <a class="text-grey" name="restful-controllers" href="#restful-controllers">#</a>
 
-Always strive to stick with the seven RESTful actions in your controllers: `index`, `create`, `store`, `show`, `edit`, `update`, and `destroy`. When you keep your controllers to these actions, they're easier to read and more closely adhere to a single responsibility mindset.
+Always strive to use the seven RESTful actions in your controllers: `index`, `create`, `store`, `show`, `edit`, `update`, and `destroy`. When you keep your controllers to these actions, they're easier to read and more closely adhere to a single responsibility mindset.
 
 Don't be afraid to add a few resource-specific methods to your controller, but if you find yourself adding too many methods that apply to specific resource relationships, for example, then strive to name the relationships you're working with and create a new controller. *Never be afraid to add another controller!*.
 
 [Adam Wathan](https://twitter.com/adamwathan) gave an [excellent talk](https://youtu.be/MF0jFKvS4SI) at Laracon US 2017 that expands on this concept in greater detail.
 
-## Authorisation <a href="#authorisation" name="authorisation" class="text-grey">#</a>
+## Authorisation <a class="text-grey" name="authorisation" href="#authorisation">#</a>
 
-In most cases, authorisation for a controller action should be the first action carried out in your controllers, enabling you to return early without processing logic an unauthorised user doesn't have access to.
+In most cases, authorisation for a controller action should be the first action carried out in your controllers.
+
+Using this as a guard clause enables you to return early without processing logic an unauthorised user doesn't have access to and aids in preventing inadvertently leaking information to unauthorised users.
 
 ```php
 class ServicesController
@@ -43,13 +46,11 @@ class ServicesController
 }
 ```
 
-## Validation <a href="#validation" name="validation" class="text-grey">#</a>
+## Validation <a class="text-grey" name="validation" href="#validation">#</a>
 
-When building an application, it is preferable to handle your request validation inside your controller methods until either size or complexity dictates that you extract to a [form request](https://laravel.com/docs/5.5/validation#form-request-validation). Practise [YAGNI](https://martinfowler.com/bliki/Yagni.html).
+When building an application, it is preferable to handle your request validation inside your controller methods until either size or complexity dictates that you extract to a [form request](https://laravel.com/docs/5.5/validation#form-request-validation). Practice [YAGNI](https://martinfowler.com/bliki/Yagni.html).
 
 In simple instances, use the `validate` method on the `request` helper. If using form requests, be sure to type hint the form request and leverage Laravel's [Service Container](https://laravel.com/docs/5.5/container) to inject it in your method as needed.
-
-Be sure to declare your request key's validation rules using array syntax. This makes them not only more readable, but also consistent, when using validation `Rule` object variants or [custom validation rules](https://laravel.com/docs/5.5/validation#custom-validation-rules).
 
 ```php
 class NotesController
@@ -65,11 +66,9 @@ class NotesController
 }
 ```
 
-## Route Model Binding  <a href="#route-model-binding" name="route-model-binding" class="text-grey">#</a>
+## Route Model Binding <a class="text-grey" name="route-model-binding" href="#route-model-binding">#</a>
 
-Whilst Laravel has a powerful Service Container, in terms of method injection in controller methods, it is most useful for [route model binding](https://laravel.com/docs/5.5/routing#route-model-binding).
-
-Using implicit binding out of the box, it is trivial to load the corresponding model and pass it directly to your controller, without an extra line querying the database.
+Using implicit [route model binding](https://laravel.com/docs/5.5/routing#route-model-binding) out of the box, it is trivial to load the corresponding model and pass it directly to your controller, without an extra line of code responsible for querying the database.
 
 ```php
 // routes/web.php
@@ -93,4 +92,4 @@ public function show(Service $service)
 }
 ```
 
-In many cases, the default implicit binding will suffice. If you want to use a column other than the model's `id`, you can set the value using the model's `getRouteKeyName` method. For more complex lookups, can make use of explicit binding.
+In many cases, the default implicit binding will suffice. If you want to use a column other than the model's `id`, you can set the value using the model's `getRouteKeyName()` method. For more complex lookups, can make use of [explicit binding](https://laravel.com/docs/5.5/routing#explicit-binding).
