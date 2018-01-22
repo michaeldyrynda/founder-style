@@ -8,13 +8,14 @@
     </head>
     <body>
         <div class="h-screen">
-            <div class="flex flex-col-reverse md:flex-row bg-indigo-lightest md:min-h-full -mx-2">
-                <div class="flex-grow w-full md:w-1/5 border-r border-indigo-lighter">
-                    <h1 class="text-2xl font-medium block px-8 mt-4 mb-4">
-                        <a href="/" class="text-indigo-darker no-underline hover:no-underline">Founder</a>
-                    </h1>
-                    <hr class="block h-px w-full bg-indigo-lighter mt-2 mb-4">
-                    <ul class="px-8 mt-6 text-base">
+            <div class="flex flex-col-reverse md:flex-row bg-indigo-lightest md:min-h-full">
+                <div class="flex-grow w-full md:w-1/5 md:border-r md:border-indigo-lighter">
+                    <div class="md:fixed">
+                        <h1 class="text-2xl font-medium block px-8 mt-4 mb-4">
+                            <a href="/" class="text-indigo-darker no-underline hover:no-underline">Founder</a>
+                        </h1>
+                        <hr class="block h-px w-full mt-2 mb-4 md:bg-indigo-lighter md:-mr-2">
+                        <ul class="px-8 mt-6 text-base list-reset">
             <li class="leading-loose font-light">
             <a href="/general">General</a>
         </li>
@@ -52,8 +53,9 @@
             <a href="/migrations-schema">Migrations &amp; Schema</a>
         </li>
     </ul>
+                    </div>
                     <hr class="block md:hidden h-px w-full bg-indigo-lighter mt-2 mb-4">
-                    <div class="mb-4 md:absolute md:pin-b md:pin-l md:ml-4 md:mb-2">
+                    <div class="mb-4 md:fixed md:pin-b md:pin-l md:ml-4 md:mb-2">
                         <a href="https://github.com/michaeldyrynda/founder-style" target="_blank" class="text-base font-light px-8 md:px-2">
                             GitHub
                         </a>
@@ -66,17 +68,21 @@
                         </h1>
                         <hr class="block h-px w-full bg-indigo-lighter text-left mt-2 mb-4">
                         <div class="markdown">
-                            <h2>Introduction</h2>
-<p>This guide provides a set of styles and conventions to follow for each Laravel project you undertake.</p>
-<p>It helps to maintain a level of consistency between projects and reduce cognitive overhead needed when switching between projects.</p>
-<p>This style guide also serves to make it simpler to onboard new developers into existing projects.</p>
-<p>The guide is designed to change over time, as new patterns emerge and teams expand, taking into account new perspectives. This guide aims to reflect styles and conventions for the current version of Laravel at all times.</p>
-<h2>Why Laravel?</h2>
-<p>At its core, Laravel provides a set of conventions that allow you to developer your applications quickly, whilst keeping the syntax simple and readable.</p>
-<p>Along with its simple syntax, are a number of conventions and features that really allow you to focus on building your application, without worrying about all of the boilerplate things you'd ordinarily go through when building an application from scratch. This includes things like managing your database schema with <a href="/migrations-schema">migrations</a> and working with the database using <a href="/eloquent">Eloquent</a>.</p>
-<p>Simply put, <a href="https://laravel.com">Laravel</a> gives you all of the tools to build a modern web application right from your first <code>composer install</code>. Be warned, though: try and follow the framework's conventions wherever possible to save yourself headaches in future.</p>
-<h2>A starter application</h2>
-<p><a href="https://github.com/michaeldyrynda/founder">Founder</a> provides you with a Laravel starter application that builds from the one you will find in the <a href="https://github.com/laravel/laravel">Laravel</a> repository. It takes the base Laravel application and applies some of the styles and conventions that are talked about throughout this style guide.</p>
+                            <h2>Introduction <a class="text-grey" name="introduction" href="#introduction">#</a></h2>
+<p>This style guide:</p>
+<ul>
+<li>provides a set of styles and conventions to follow for each Laravel project you undertake</li>
+<li>helps to maintain a level of consistency between projects and reduce cognitive overhead needed when switching between them</li>
+<li>serves to make it simpler to onboard new developers into existing projects</li>
+<li>is designed to change over time, as new patterns emerge and teams expand, taking into account new perspectives</li>
+<li>aims to reflect styles and conventions that apply to current version of Laravel at all times</li>
+</ul>
+<h2>Why Laravel? <a class="text-grey" name="why-laravel" href="#why-laravel">#</a></h2>
+<p>At its core, <a href="https://laravel.com">Laravel</a> helps you to develop your applications quickly, whilst keeping the syntax simple and readable.</p>
+<p>Along with its simple syntax, are a number of conventions and features that really allow you to focus on building your application, without worrying about the boilerplate code you'd ordinarily write when building an application from scratch. This includes things like managing your database schema with <a href="/migrations-schema">migrations</a> and working with the database using <a href="/eloquent">Eloquent</a>.</p>
+<p>Simply put, Laravel gives you all of the tools to build a robust, modern web application right from your first <code>composer install</code>. Be warned, though: try and follow the framework's conventions wherever possible to save yourself headaches in future.</p>
+<h2>A starter application <a class="text-grey" name="a-starter-application" href="#a-starter-application">#</a></h2>
+<p><a href="https://github.com/michaeldyrynda/founder">Founder</a> provides you with a Laravel starter application that builds from the one you will find in the Laravel <a href="https://github.com/laravel/laravel">GitHub repository</a>. It takes the base Laravel application, applies the styles and conventions that are explained throughout this style guide, and adds some useful packages you will find yourself otherwise installing manually each time.</p>
 <p>Getting started with Founder is simple with <a href="https://getcomposer.org">Composer</a>.</p>
 <pre><code>composer create-project --prefer-dist dyrynda/founder my-project-name</code></pre>
 <p>This will fetch a copy of the Founder project, place it on the <code>my-project-name</code> directory, and install the project dependencies, ready for you to get started.</p>                        </div>

@@ -8,13 +8,14 @@
     </head>
     <body>
         <div class="h-screen">
-            <div class="flex flex-col-reverse md:flex-row bg-indigo-lightest md:min-h-full -mx-2">
-                <div class="flex-grow w-full md:w-1/5 border-r border-indigo-lighter">
-                    <h1 class="text-2xl font-medium block px-8 mt-4 mb-4">
-                        <a href="/" class="text-indigo-darker no-underline hover:no-underline">Founder</a>
-                    </h1>
-                    <hr class="block h-px w-full bg-indigo-lighter mt-2 mb-4">
-                    <ul class="px-8 mt-6 text-base">
+            <div class="flex flex-col-reverse md:flex-row bg-indigo-lightest md:min-h-full">
+                <div class="flex-grow w-full md:w-1/5 md:border-r md:border-indigo-lighter">
+                    <div class="md:fixed">
+                        <h1 class="text-2xl font-medium block px-8 mt-4 mb-4">
+                            <a href="/" class="text-indigo-darker no-underline hover:no-underline">Founder</a>
+                        </h1>
+                        <hr class="block h-px w-full mt-2 mb-4 md:bg-indigo-lighter md:-mr-2">
+                        <ul class="px-8 mt-6 text-base list-reset">
             <li class="leading-loose font-light">
             <a href="/general">General</a>
         </li>
@@ -52,8 +53,9 @@
             <a href="/migrations-schema">Migrations &amp; Schema</a>
         </li>
     </ul>
+                    </div>
                     <hr class="block md:hidden h-px w-full bg-indigo-lighter mt-2 mb-4">
-                    <div class="mb-4 md:absolute md:pin-b md:pin-l md:ml-4 md:mb-2">
+                    <div class="mb-4 md:fixed md:pin-b md:pin-l md:ml-4 md:mb-2">
                         <a href="https://github.com/michaeldyrynda/founder-style" target="_blank" class="text-base font-light px-8 md:px-2">
                             GitHub
                         </a>
@@ -66,9 +68,9 @@
                         </h1>
                         <hr class="block h-px w-full bg-indigo-lighter text-left mt-2 mb-4">
                         <div class="markdown">
-                            <h2>Forge deployment <a href="#forge-deployment" name="forge-deployment" class="text-grey">#</a></h2>
+                            <h2>Forge deployment <a class="text-grey" name="forge-deployment" href="#forge-deployment">#</a></h2>
 <p>When deploying applications with <a href="https://forge.laravel.com">Laravel Forge</a> for the first time, do not select <em>Install Composer Dependencies</em>.</p>
-<p>Be sure to keep any of your production environment configuration variables up to date in the <a href="https://github.com/michaeldyrynda/founder/blob/master/.env.production.example"><code>.env.production.example</code> file</a>, which you can copy into your application's environment using the Forge environment interface.</p>
+<p>Be sure to keep any of your production environment configuration variables up to date in the <a href="https://github.com/michaeldyrynda/founder/blob/master/.env.production.example"><code>.env.production.example</code> file</a>, which you can copy into your application's environment using the Forge interface.</p>
 <p>The following deployment script should be used on a PHP 7.1 host, and can be executed once the application repository has been installed by clicking on the <em>Deploy Now</em> button.</p>
 <pre><code>cd /home/forge/{{ site_name }}
 git pull origin master
@@ -86,11 +88,12 @@ then
     php artisan route:cache
     php artisan horizon:terminate
 fi</code></pre>
-<h2>Laravel Horizon <a href="#laravel-horizon" name="laravel-horizon" class="text-grey">#</a></h2>
-<p>All Forge-managed servers ship with Redis running by default, so it makes sense to use Redis for caching, sessions, and queues. Using Horizon, you will also get a dashboard, which you can use to monitor and retry your application jobs with ease.</p>
+<h2>Laravel Horizon <a class="text-grey" name="laravel-horizon" href="#laravel-horizon">#</a></h2>
+<p>All Forge-managed servers ship with Redis running by default. Using Horizon to manage your queues, you will also get a dashboard, which you can use to monitor and retry your application jobs with ease.</p>
 <p>The default configuration for Horizon - found in <code>config/horizon.php</code> - should be suitable in most instances. Consult the Horizon <a href="https://laravel.com/docs/5.5/horizon">documentation</a> should changes be necessary.</p>
-<p>In a default Horizon installation, the dashboard will be unavailable in production. Founder modifies this behaviour, which allows any authenticated user access to the dashboard. This should be reviewed on a per-application basis. This can be reviewed in <code>app/Providers/AppServiceProvider.php</code>.</p>
-<p>Once your application has been installed, be sure to set up the daemon which ensures the service is running. Go to your server in Forge and click on <em>Daemons</em>.</p>
+<p>In a default Horizon installation, the dashboard will be unavailable in production. Founder modifies this behaviour to allow any authenticated user access to the dashboard. This should be reviewed on a per-application basis in the <a href="https://github.com/michaeldyrynda/founder/blob/master/app/Providers/AppServiceProvider.php"><code>app/Providers/AppServiceProvider.php</code> file</a>.</p>
+<p>Once your application has been installed, be sure to set up the daemon which keeps the Horizon service is running.</p>
+<p>Go to your server in Forge and click on <em>Daemons</em>.</p>
 <img src="/images/horizon-config.png" class="mx-auto" alt="Horizon daemon config">
 <p>The <code>php artisan horizon:terminate</code> command that is part of the deployment script will handle gracefully terminating and restarting Horizon on each deployment.</p>                        </div>
                     </div>

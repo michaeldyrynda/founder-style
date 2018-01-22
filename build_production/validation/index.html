@@ -8,13 +8,14 @@
     </head>
     <body>
         <div class="h-screen">
-            <div class="flex flex-col-reverse md:flex-row bg-indigo-lightest md:min-h-full -mx-2">
-                <div class="flex-grow w-full md:w-1/5 border-r border-indigo-lighter">
-                    <h1 class="text-2xl font-medium block px-8 mt-4 mb-4">
-                        <a href="/" class="text-indigo-darker no-underline hover:no-underline">Founder</a>
-                    </h1>
-                    <hr class="block h-px w-full bg-indigo-lighter mt-2 mb-4">
-                    <ul class="px-8 mt-6 text-base">
+            <div class="flex flex-col-reverse md:flex-row bg-indigo-lightest md:min-h-full">
+                <div class="flex-grow w-full md:w-1/5 md:border-r md:border-indigo-lighter">
+                    <div class="md:fixed">
+                        <h1 class="text-2xl font-medium block px-8 mt-4 mb-4">
+                            <a href="/" class="text-indigo-darker no-underline hover:no-underline">Founder</a>
+                        </h1>
+                        <hr class="block h-px w-full mt-2 mb-4 md:bg-indigo-lighter md:-mr-2">
+                        <ul class="px-8 mt-6 text-base list-reset">
             <li class="leading-loose font-light">
             <a href="/general">General</a>
         </li>
@@ -52,8 +53,9 @@
             <a href="/migrations-schema">Migrations &amp; Schema</a>
         </li>
     </ul>
+                    </div>
                     <hr class="block md:hidden h-px w-full bg-indigo-lighter mt-2 mb-4">
-                    <div class="mb-4 md:absolute md:pin-b md:pin-l md:ml-4 md:mb-2">
+                    <div class="mb-4 md:fixed md:pin-b md:pin-l md:ml-4 md:mb-2">
                         <a href="https://github.com/michaeldyrynda/founder-style" target="_blank" class="text-base font-light px-8 md:px-2">
                             GitHub
                         </a>
@@ -66,7 +68,8 @@
                         </h1>
                         <hr class="block h-px w-full bg-indigo-lighter text-left mt-2 mb-4">
                         <div class="markdown">
-                            <p>When referencing validation rules, you must always use the array syntax, rather than pipe-delimited strings. This makes formatting consistent whether you have one or many validation rules, if you use the <code>Rule</code> class, or if your rules are complex enough such that you need to create <a href="https://laravel.com/docs/5.5/validation#custom-validation-rules">custom validation rules</a>.</p>
+                            <p>When referencing validation rules, you must always use the array syntax, rather than pipe-delimited strings.</p>
+<p>This ensures consistent formatting whether you have one or many validation rules, if you use the <code>Rule</code> class, or if your rules are complex enough such that you need to create <a href="https://laravel.com/docs/5.5/validation#custom-validation-rules">custom validation rules</a>.</p>
 <pre><code class="language-php">// Good
 request()-&gt;validate([
     'name' =&gt; ['required'],
@@ -78,7 +81,7 @@ request()-&gt;validate([
     'name' =&gt; 'required',
     'email' =&gt; ['required', Rule::exists('users')],
 ]);</code></pre>
-<h2>Simple custom validation rules <a href="#simple-custom-validation-rules" name="simple-custom-validation-rules" class="text-grey">#</a></h2>
+<h2>Simple custom validation rules <a class="text-grey" name="simple-custom-validation-rules" href="#simple-custom-validation-rules">#</a></h2>
 <p>When declaring simple validation rules, always use <code>snake_case</code>.</p>
 <pre><code class="language-php">Validator::extend('phone_number', function ($attribute, $value) {
     return PhoneNumber::isValid($value);

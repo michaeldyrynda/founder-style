@@ -8,13 +8,14 @@
     </head>
     <body>
         <div class="h-screen">
-            <div class="flex flex-col-reverse md:flex-row bg-indigo-lightest md:min-h-full -mx-2">
-                <div class="flex-grow w-full md:w-1/5 border-r border-indigo-lighter">
-                    <h1 class="text-2xl font-medium block px-8 mt-4 mb-4">
-                        <a href="/" class="text-indigo-darker no-underline hover:no-underline">Founder</a>
-                    </h1>
-                    <hr class="block h-px w-full bg-indigo-lighter mt-2 mb-4">
-                    <ul class="px-8 mt-6 text-base">
+            <div class="flex flex-col-reverse md:flex-row bg-indigo-lightest md:min-h-full">
+                <div class="flex-grow w-full md:w-1/5 md:border-r md:border-indigo-lighter">
+                    <div class="md:fixed">
+                        <h1 class="text-2xl font-medium block px-8 mt-4 mb-4">
+                            <a href="/" class="text-indigo-darker no-underline hover:no-underline">Founder</a>
+                        </h1>
+                        <hr class="block h-px w-full mt-2 mb-4 md:bg-indigo-lighter md:-mr-2">
+                        <ul class="px-8 mt-6 text-base list-reset">
             <li class="leading-loose font-light">
             <a href="/general">General</a>
         </li>
@@ -52,8 +53,9 @@
             <a href="/migrations-schema">Migrations &amp; Schema</a>
         </li>
     </ul>
+                    </div>
                     <hr class="block md:hidden h-px w-full bg-indigo-lighter mt-2 mb-4">
-                    <div class="mb-4 md:absolute md:pin-b md:pin-l md:ml-4 md:mb-2">
+                    <div class="mb-4 md:fixed md:pin-b md:pin-l md:ml-4 md:mb-2">
                         <a href="https://github.com/michaeldyrynda/founder-style" target="_blank" class="text-base font-light px-8 md:px-2">
                             GitHub
                         </a>
@@ -78,12 +80,13 @@ class ServiceController
 {
     // ...
 }</code></pre>
-<h2>RESTful controllers <a href="#restful-controllers" name="restful-controllers" class="text-grey">#</a></h2>
-<p>Always strive to stick with the seven RESTful actions in your controllers: <code>index</code>, <code>create</code>, <code>store</code>, <code>show</code>, <code>edit</code>, <code>update</code>, and <code>destroy</code>. When you keep your controllers to these actions, they're easier to read and more closely adhere to a single responsibility mindset.</p>
+<h2>RESTful controllers <a class="text-grey" name="restful-controllers" href="#restful-controllers">#</a></h2>
+<p>Always strive to use the seven RESTful actions in your controllers: <code>index</code>, <code>create</code>, <code>store</code>, <code>show</code>, <code>edit</code>, <code>update</code>, and <code>destroy</code>. When you keep your controllers to these actions, they're easier to read and more closely adhere to a single responsibility mindset.</p>
 <p>Don't be afraid to add a few resource-specific methods to your controller, but if you find yourself adding too many methods that apply to specific resource relationships, for example, then strive to name the relationships you're working with and create a new controller. <em>Never be afraid to add another controller!</em>.</p>
 <p><a href="https://twitter.com/adamwathan">Adam Wathan</a> gave an <a href="https://youtu.be/MF0jFKvS4SI">excellent talk</a> at Laracon US 2017 that expands on this concept in greater detail.</p>
-<h2>Authorisation <a href="#authorisation" name="authorisation" class="text-grey">#</a></h2>
-<p>In most cases, authorisation for a controller action should be the first action carried out in your controllers, enabling you to return early without processing logic an unauthorised user doesn't have access to.</p>
+<h2>Authorisation <a class="text-grey" name="authorisation" href="#authorisation">#</a></h2>
+<p>In most cases, authorisation for a controller action should be the first action carried out in your controllers.</p>
+<p>Using this as a guard clause enables you to return early without processing logic an unauthorised user doesn't have access to and aids in preventing inadvertently leaking information to unauthorised users.</p>
 <pre><code class="language-php">class ServicesController
 {
     public function update(Service $service)
@@ -93,10 +96,9 @@ class ServiceController
         // The current user can update the service...
     }
 }</code></pre>
-<h2>Validation <a href="#validation" name="validation" class="text-grey">#</a></h2>
-<p>When building an application, it is preferable to handle your request validation inside your controller methods until either size or complexity dictates that you extract to a <a href="https://laravel.com/docs/5.5/validation#form-request-validation">form request</a>. Practise <a href="https://martinfowler.com/bliki/Yagni.html">YAGNI</a>.</p>
+<h2>Validation <a class="text-grey" name="validation" href="#validation">#</a></h2>
+<p>When building an application, it is preferable to handle your request validation inside your controller methods until either size or complexity dictates that you extract to a <a href="https://laravel.com/docs/5.5/validation#form-request-validation">form request</a>. Practice <a href="https://martinfowler.com/bliki/Yagni.html">YAGNI</a>.</p>
 <p>In simple instances, use the <code>validate</code> method on the <code>request</code> helper. If using form requests, be sure to type hint the form request and leverage Laravel's <a href="https://laravel.com/docs/5.5/container">Service Container</a> to inject it in your method as needed.</p>
-<p>Be sure to declare your request key's validation rules using array syntax. This makes them not only more readable, but also consistent, when using validation <code>Rule</code> object variants or <a href="https://laravel.com/docs/5.5/validation#custom-validation-rules">custom validation rules</a>.</p>
 <pre><code class="language-php">class NotesController
 {
     public function create()
@@ -108,9 +110,8 @@ class ServiceController
         Note::create(request('body'));
     }
 }</code></pre>
-<h2>Route Model Binding  <a href="#route-model-binding" name="route-model-binding" class="text-grey">#</a></h2>
-<p>Whilst Laravel has a powerful Service Container, in terms of method injection in controller methods, it is most useful for <a href="https://laravel.com/docs/5.5/routing#route-model-binding">route model binding</a>.</p>
-<p>Using implicit binding out of the box, it is trivial to load the corresponding model and pass it directly to your controller, without an extra line querying the database.</p>
+<h2>Route Model Binding <a class="text-grey" name="route-model-binding" href="#route-model-binding">#</a></h2>
+<p>Using implicit <a href="https://laravel.com/docs/5.5/routing#route-model-binding">route model binding</a> out of the box, it is trivial to load the corresponding model and pass it directly to your controller, without an extra line of code responsible for querying the database.</p>
 <pre><code class="language-php">// routes/web.php
 Route::get('/services/{service}', 'ServicesController@show')-&gt;name('services.show');
 
@@ -130,7 +131,7 @@ public function show(Service $service)
     // in the route's {service} placeholder. If a record cannot be found
     // Laravel will return a ModelNotFoundException and in turn a 404.
 }</code></pre>
-<p>In many cases, the default implicit binding will suffice. If you want to use a column other than the model's <code>id</code>, you can set the value using the model's <code>getRouteKeyName</code> method. For more complex lookups, can make use of explicit binding.</p>                        </div>
+<p>In many cases, the default implicit binding will suffice. If you want to use a column other than the model's <code>id</code>, you can set the value using the model's <code>getRouteKeyName()</code> method. For more complex lookups, can make use of <a href="https://laravel.com/docs/5.5/routing#explicit-binding">explicit binding</a>.</p>                        </div>
                     </div>
                 </div>
             </div>

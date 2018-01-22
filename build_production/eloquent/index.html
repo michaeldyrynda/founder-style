@@ -8,13 +8,14 @@
     </head>
     <body>
         <div class="h-screen">
-            <div class="flex flex-col-reverse md:flex-row bg-indigo-lightest md:min-h-full -mx-2">
-                <div class="flex-grow w-full md:w-1/5 border-r border-indigo-lighter">
-                    <h1 class="text-2xl font-medium block px-8 mt-4 mb-4">
-                        <a href="/" class="text-indigo-darker no-underline hover:no-underline">Founder</a>
-                    </h1>
-                    <hr class="block h-px w-full bg-indigo-lighter mt-2 mb-4">
-                    <ul class="px-8 mt-6 text-base">
+            <div class="flex flex-col-reverse md:flex-row bg-indigo-lightest md:min-h-full">
+                <div class="flex-grow w-full md:w-1/5 md:border-r md:border-indigo-lighter">
+                    <div class="md:fixed">
+                        <h1 class="text-2xl font-medium block px-8 mt-4 mb-4">
+                            <a href="/" class="text-indigo-darker no-underline hover:no-underline">Founder</a>
+                        </h1>
+                        <hr class="block h-px w-full mt-2 mb-4 md:bg-indigo-lighter md:-mr-2">
+                        <ul class="px-8 mt-6 text-base list-reset">
             <li class="leading-loose font-light">
             <a href="/general">General</a>
         </li>
@@ -52,8 +53,9 @@
             <a href="/migrations-schema">Migrations &amp; Schema</a>
         </li>
     </ul>
+                    </div>
                     <hr class="block md:hidden h-px w-full bg-indigo-lighter mt-2 mb-4">
-                    <div class="mb-4 md:absolute md:pin-b md:pin-l md:ml-4 md:mb-2">
+                    <div class="mb-4 md:fixed md:pin-b md:pin-l md:ml-4 md:mb-2">
                         <a href="https://github.com/michaeldyrynda/founder-style" target="_blank" class="text-base font-light px-8 md:px-2">
                             GitHub
                         </a>
@@ -68,19 +70,20 @@
                         <div class="markdown">
                             <p>The base model has one purpose out of the box; it sets the <code>$guarded</code> property to an empty array. This means you can avoid those situations where you forgot to update the <code>$fillable</code> property and were hit with a <code>MassAssignmentException</code>.</p>
 <p>You are of course free to modify this base model to encapsulate any funtionality you require in all of your application's models on a per-application basis.</p>
-<p>It is important that you <strong><em>never</em></strong> pass <code>request()-&gt;all()</code> into any of your models' methods that allow mass assignment, such as <code>create</code> or <code>update</code>. <em>Always</em> use <code>request()-&gt;only()</code> to ensure only desired input is being passed into your models, irrespective of what was in the request. Explicit safety, right in your controllers - rather than the implicit and somewhat hidden safety of the <code>$fillable</code> property.</p>
-<h2>Formatting <a href="#formatting" name="formatting" class="text-grey">#</a></h2>
+<p>It is important that you <strong><em>never</em></strong> pass <code>request()-&gt;all()</code> into any of your models' methods that allow mass assignment, such as <code>create</code> or <code>update</code>. <em>Always</em> use <code>request()-&gt;only()</code> to ensure only desired input is being passed into your models, irrespective of what was in the request.</p>
+<p>Explicit safety, right in your controllers - rather than the implicit and somewhat hidden safety of the <code>$fillable</code> property.</p>
+<h2>Formatting <a class="text-grey" name="formatting" href="#formatting">#</a></h2>
 <p>The PSR-2 styles that are used with Founder define the order various components should be defined within a class. In the specific case of Eloquent models, the following convention should be used for ordering.</p>
 <ul>
-<li>&bull; <code>use</code> statements (traits)</li>
-<li>&bull; Properties, with framework-defined properties taking precedence over application-defined ones</li>
-<li>&bull; Magic methods</li>
-<li>&bull; <code>boot</code> method</li>
-<li>&bull; Named (static) constructors</li>
-<li>&bull; Query scopes</li>
-<li>&bull; Mutators and accessors (grouping each mutator / accessor pair)</li>
+<li><code>use</code> statements (traits)</li>
+<li>Properties, with framework-defined properties taking precedence over application-defined ones</li>
+<li>Magic methods</li>
+<li><code>boot</code> method</li>
+<li>Named (static) constructors</li>
+<li>Query scopes</li>
+<li>Mutators and accessors (grouping each mutator / accessor pair)</li>
 </ul>
-<h2>Abstracting relationships <a href="#abstracting-relationships" name="abstracting-relationships" class="text-grey">#</a></h2>
+<h2>Abstracting relationships <a class="text-grey" name="abstracting-relationships" href="#abstracting-relationships">#</a></h2>
 <p>As outlined in the <a href="/general#dont-talk-to-strangers">general docs</a>, wherever possible encapsulate any relationship methods for create and update operations behind specific methods. Encapsulating this logic prevents the implementation details from leaking into your controllers.</p>                        </div>
                     </div>
                 </div>

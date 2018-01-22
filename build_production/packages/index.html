@@ -8,13 +8,14 @@
     </head>
     <body>
         <div class="h-screen">
-            <div class="flex flex-col-reverse md:flex-row bg-indigo-lightest md:min-h-full -mx-2">
-                <div class="flex-grow w-full md:w-1/5 border-r border-indigo-lighter">
-                    <h1 class="text-2xl font-medium block px-8 mt-4 mb-4">
-                        <a href="/" class="text-indigo-darker no-underline hover:no-underline">Founder</a>
-                    </h1>
-                    <hr class="block h-px w-full bg-indigo-lighter mt-2 mb-4">
-                    <ul class="px-8 mt-6 text-base">
+            <div class="flex flex-col-reverse md:flex-row bg-indigo-lightest md:min-h-full">
+                <div class="flex-grow w-full md:w-1/5 md:border-r md:border-indigo-lighter">
+                    <div class="md:fixed">
+                        <h1 class="text-2xl font-medium block px-8 mt-4 mb-4">
+                            <a href="/" class="text-indigo-darker no-underline hover:no-underline">Founder</a>
+                        </h1>
+                        <hr class="block h-px w-full mt-2 mb-4 md:bg-indigo-lighter md:-mr-2">
+                        <ul class="px-8 mt-6 text-base list-reset">
             <li class="leading-loose font-light">
             <a href="/general">General</a>
         </li>
@@ -52,8 +53,9 @@
             <a href="/migrations-schema">Migrations &amp; Schema</a>
         </li>
     </ul>
+                    </div>
                     <hr class="block md:hidden h-px w-full bg-indigo-lighter mt-2 mb-4">
-                    <div class="mb-4 md:absolute md:pin-b md:pin-l md:ml-4 md:mb-2">
+                    <div class="mb-4 md:fixed md:pin-b md:pin-l md:ml-4 md:mb-2">
                         <a href="https://github.com/michaeldyrynda/founder-style" target="_blank" class="text-base font-light px-8 md:px-2">
                             GitHub
                         </a>
@@ -66,10 +68,15 @@
                         </h1>
                         <hr class="block h-px w-full bg-indigo-lighter text-left mt-2 mb-4">
                         <div class="markdown">
-                            <p>Since the arrival of <a href="https://getcomposer.org">Composer</a>, the days of copying and pasting code between projects are long gone.</p>
-<p>Not only have Composer and <a href="https://packagist.org">Packagist</a> made it very simple for you to share your own code between your projects, but also so save yourself time by pulling in packages that other developers have written all over the world, so that you can focus on solving your business-specific goals.</p>
-<p>To that end, Founder installs a few packages in addition to the Laravel defaults that solve problems that are encountered in many of the projects that are spun up regularly. The goal of Founder is not, however, to include the kitchen sink. Of course, you are free to add, change, and remove any packages from the <a href="https://github.com/michaeldyrynda/founder/blob/master/composer.json"><code>composer.json</code> file</a> as you see fit.</p>
+                            <p>Since the arrival of <a href="https://getcomposer.org">Composer</a>, copying and pasting code between projects is a thing of the past.</p>
+<p>Not only have Composer and <a href="https://packagist.org">Packagist</a> made it very simple for you to share your own code between your projects, they have also help you to save time by pulling in packages that other developers have written, so that you can focus on achieving your application-specific goals.</p>
+<p>To that end, Founder installs a few packages in addition to the Laravel defaults that solve problems that are encountered in many of the most applications. The goal of Founder is not, however, to include the kitchen sink.</p>
+<p>You are of course free to add, change, and remove any packages from the <a href="https://github.com/michaeldyrynda/founder/blob/master/composer.json"><code>composer.json</code> file</a> as you see fit.</p>
 <ul>
+<li><a href="https://github.com/barryvdh/laravel-debugbar">barryvdh/laravel-debugbar</a> (<em>dev only</em>)
+<ul>
+<li>A Laravel-specific implementation for DebugBar, which can display profiling data from any part of your application. Installed only with dev dependencies and displayed only when <code>APP_DEBUG=true</code>.</li>
+</ul></li>
 <li><a href="https://github.com/michaeldyrynda/laravel-make-user">dyrynda/laravel-make-user</a>
 <ul>
 <li>Many of our apps are internally facing, so there is no public registration. This package makes adding your first - typically admin - user a cinch.</li>

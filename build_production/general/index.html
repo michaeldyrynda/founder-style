@@ -8,13 +8,14 @@
     </head>
     <body>
         <div class="h-screen">
-            <div class="flex flex-col-reverse md:flex-row bg-indigo-lightest md:min-h-full -mx-2">
-                <div class="flex-grow w-full md:w-1/5 border-r border-indigo-lighter">
-                    <h1 class="text-2xl font-medium block px-8 mt-4 mb-4">
-                        <a href="/" class="text-indigo-darker no-underline hover:no-underline">Founder</a>
-                    </h1>
-                    <hr class="block h-px w-full bg-indigo-lighter mt-2 mb-4">
-                    <ul class="px-8 mt-6 text-base">
+            <div class="flex flex-col-reverse md:flex-row bg-indigo-lightest md:min-h-full">
+                <div class="flex-grow w-full md:w-1/5 md:border-r md:border-indigo-lighter">
+                    <div class="md:fixed">
+                        <h1 class="text-2xl font-medium block px-8 mt-4 mb-4">
+                            <a href="/" class="text-indigo-darker no-underline hover:no-underline">Founder</a>
+                        </h1>
+                        <hr class="block h-px w-full mt-2 mb-4 md:bg-indigo-lighter md:-mr-2">
+                        <ul class="px-8 mt-6 text-base list-reset">
             <li class="leading-loose font-medium">
             <a href="/general">General</a>
         </li>
@@ -52,8 +53,9 @@
             <a href="/migrations-schema">Migrations &amp; Schema</a>
         </li>
     </ul>
+                    </div>
                     <hr class="block md:hidden h-px w-full bg-indigo-lighter mt-2 mb-4">
-                    <div class="mb-4 md:absolute md:pin-b md:pin-l md:ml-4 md:mb-2">
+                    <div class="mb-4 md:fixed md:pin-b md:pin-l md:ml-4 md:mb-2">
                         <a href="https://github.com/michaeldyrynda/founder-style" target="_blank" class="text-base font-light px-8 md:px-2">
                             GitHub
                         </a>
@@ -66,13 +68,13 @@
                         </h1>
                         <hr class="block h-px w-full bg-indigo-lighter text-left mt-2 mb-4">
                         <div class="markdown">
-                            <p>At its most simple level, each Laravel project must follow the code styles set out in the <a href="http://www.php-fig.org/psr/psr-1/">PSR-1</a> and <a href="http://www.php-fig.org/psr/psr-2/">PSR-2</a> recommendations. Project style is maintained by a <a href="https://github.com/michaeldyrynda/founder/blob/master/.php_cs"><code>.php_cs</code></a> configuration file, in combination with the <a href="https://github.com/FriendsOfPHP/PHP-CS-Fixer">friendsofphp/php-cs-fixer</a> project. You can run this configuration via Composer using <code>composer run-script fix-cs</code>.</p>
-<p>Any variables declared within the context of your application should use <code>camelCase</code> syntax, except where noted otherwise in this guide.</p>
-<p>Always strive to keep your code expressive and human-readable. Make it easy for the next developer that looks at the code to be able to reason about your intent.</p>
-<h2>Should I rename my application? <a href="#should-i-rename-my-application" name="should-i-rename-my-application" class="text-grey">#</a></h2>
-<p>Laravel ships with a default <code>app:name</code> command. This guide recommends <em>never</em> renaming your application, further allowing you to reduce cognitive overhead between applications. Your fingers will thank you when you don't have to think about importing a class from the <code>App</code> namespace, when the namespace doesn't change when jumping between projects.</p>
-<h2>Whitespace <a href="#whitespace" name="whitespace" class="text-grey">#</a></h2>
-<p>Code should always be allowed to breathe! PHP will be interpreted whether you write it with no whitespace or if you write it with double spacing. For readability, it is better to cater to your fellow developers rather than for the interpreter. Don't be afraid to use whitespace.</p>
+                            <p>At the most simple level, each Laravel project must follow the code styles set out in the <a href="http://www.php-fig.org/psr/psr-1/">PSR-1</a> and <a href="http://www.php-fig.org/psr/psr-2/">PSR-2</a> recommendations. Project style is maintained by a <a href="https://github.com/michaeldyrynda/founder/blob/master/.php_cs"><code>.php_cs</code></a> configuration file, in combination with the <a href="https://github.com/FriendsOfPHP/PHP-CS-Fixer">friendsofphp/php-cs-fixer</a> project. You can run the fixer manually via Composer using <code>composer run-script fix-cs</code>.</p>
+<p>Any variables declared within the context of your application must use <code>camelCase</code> syntax, except where noted otherwise in this guide.</p>
+<p>Always strive to keep your code expressive and human-readable. Make it easy for the next developer that looks at the code to be able to reason about your intent. Realise that that developer could well be you trying to fix an issue at 4pm on a Friday, six months from now.</p>
+<h2>Should I rename my application? <a class="text-grey" name="should-i-rename-my-application" href="#should-i-rename-my-application">#</a></h2>
+<p>Laravel ships with an <code>app:name</code> command. <em>Never</em> renaming your application. This reduces cognitive overhead between applications such that you can always import your application's classes from the <code>App</code> namespace, when the namespace doesn't change when jumping between projects.</p>
+<h2>Whitespace <a class="text-grey" name="whitespace" href="#whitespace">#</a></h2>
+<p>PHP will be interpreted whether you write it with no whitespace or if you write it with double spacing. For readability, it is better to cater to your fellow developers rather than for the PHP interpreter. Don't be afraid to use whitespace.</p>
 <pre><code class="language-php">// Good
 public function normalisePhoneNumber($input)
 {
@@ -106,9 +108,9 @@ if (trim($input) === '') {
     return '';
 
 }</code></pre>
-<h2>Exceptions <a href="#exceptions" name="exceptions" class="text-grey">#</a></h2>
+<h2>Exceptions <a class="text-grey" name="exceptions" href="#exceptions">#</a></h2>
 <p>Exceptions are a good way to control the flow of your code and provide detailed and descriptive error messages to developers.</p>
-<p>When you inline exceptions in your code, it's difficult to see various error cases as they may be split across different files, which in turn makes it harder to see why you're raising exceptions in the first place.</p>
+<p>When you inline exceptions in your code, it can quickly become difficult to understand all the possible error cases as they may be split across different files, which in turn makes it harder to see why you might be raising exceptions wholistically.</p>
 <pre><code class="language-php">public function index()
 {
     if ($this-&gt;invalidStep(request('step'))) {
@@ -143,8 +145,9 @@ public function index()
     }
 }</code></pre>
 <p>Co-locating messages inside your custom exception classes makes it not only easier to track each message and its formatting, but also to determine when an exceptions messages start to drift apart in focus, allowing you to split them up into new exception classes with a narrower focus and more concise API.</p>
-<h2>Don't talk to strangers <a href="#dont-talk-to-strangers" name="dont-talk-to-strangers" class="text-grey">#</a></h2>
-<p>The <a href="https://en.wikipedia.org/wiki/Law_of_Demeter">Law of Demeter</a> is a particularly useful design guideline that helps you to design more concise APIs. Consider the following Eloquent model.</p>
+<p>Learn more about <a href="http://rosstuck.com/formatting-exception-messages">formatting exception messages</a> from <a href="https://twitter.com/rosstuck">Ross Tuck</a>.</p>
+<h2>Don't talk to strangers <a class="text-grey" name="dont-talk-to-strangers" href="#dont-talk-to-strangers">#</a></h2>
+<p>The <a href="https://en.wikipedia.org/wiki/Law_of_Demeter">Law of Demeter</a> is a particularly useful design guideline that helps you to build more concise APIs. Consider the following Eloquent model.</p>
 <pre><code class="language-php">class Post extends Model
 {
     public function comments()
@@ -163,7 +166,8 @@ public function store(Post $post)
 
     return redirect()-&gt;route('posts.show', $post);
 }</code></pre>
-<p>The Law of Demeter helps to decouple your code by encouraging you to ensure each unit only has limited knowledge of other units. That is to say that your controller should not need to know how to reach through the <code>Post</code> model in order to create a new <code>Comment</code>. Instead, consider abstracting this functionality behind a new method. Hiding this information helps your controller assume as little as possible about how a <code>Post</code> and <code>Comment</code> would be related.</p>
+<p>The Law of Demeter helps to decouple your code by encouraging you to ensure that each unit only has limited knowledge of other units. That is to say that your controller should not need to know how specifically a <code>Comment</code> is added to a <code>Post</code>.</p>
+<p>Instead, consider abstract this implementation detail behind a new method. In doing so, your controller needn't know how a <code>Post</code> and <code>Comment</code> would be related, and if the implementation changes, the call to do so doesn't. SOLID!</p>
 <pre><code class="language-php">// Post.php
 public function addComment($comment)
 {

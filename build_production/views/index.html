@@ -8,13 +8,14 @@
     </head>
     <body>
         <div class="h-screen">
-            <div class="flex flex-col-reverse md:flex-row bg-indigo-lightest md:min-h-full -mx-2">
-                <div class="flex-grow w-full md:w-1/5 border-r border-indigo-lighter">
-                    <h1 class="text-2xl font-medium block px-8 mt-4 mb-4">
-                        <a href="/" class="text-indigo-darker no-underline hover:no-underline">Founder</a>
-                    </h1>
-                    <hr class="block h-px w-full bg-indigo-lighter mt-2 mb-4">
-                    <ul class="px-8 mt-6 text-base">
+            <div class="flex flex-col-reverse md:flex-row bg-indigo-lightest md:min-h-full">
+                <div class="flex-grow w-full md:w-1/5 md:border-r md:border-indigo-lighter">
+                    <div class="md:fixed">
+                        <h1 class="text-2xl font-medium block px-8 mt-4 mb-4">
+                            <a href="/" class="text-indigo-darker no-underline hover:no-underline">Founder</a>
+                        </h1>
+                        <hr class="block h-px w-full mt-2 mb-4 md:bg-indigo-lighter md:-mr-2">
+                        <ul class="px-8 mt-6 text-base list-reset">
             <li class="leading-loose font-light">
             <a href="/general">General</a>
         </li>
@@ -52,8 +53,9 @@
             <a href="/migrations-schema">Migrations &amp; Schema</a>
         </li>
     </ul>
+                    </div>
                     <hr class="block md:hidden h-px w-full bg-indigo-lighter mt-2 mb-4">
-                    <div class="mb-4 md:absolute md:pin-b md:pin-l md:ml-4 md:mb-2">
+                    <div class="mb-4 md:fixed md:pin-b md:pin-l md:ml-4 md:mb-2">
                         <a href="https://github.com/michaeldyrynda/founder-style" target="_blank" class="text-base font-light px-8 md:px-2">
                             GitHub
                         </a>
@@ -66,11 +68,10 @@
                         </h1>
                         <hr class="block h-px w-full bg-indigo-lighter text-left mt-2 mb-4">
                         <div class="markdown">
-                            <p>Views are a means for displaying your data. You should always strive to keep any logic and calculations out of your views at all times, instead carrying out all of this implementation in your controllers.</p>
-<p>Focussing on ensuring your views are responsible for displaying data only, allows them to remain light and simple to reason about.</p>
+                            <p>Views are a means for displaying your data. You should always strive to keep any logic and calculations out of your views at all times, instead carrying out all of this implementation in your controllers. This leaves your views slim and simple to reason about.</p>
 <p>Although Laravel supports templating with plain PHP files, Laravel's Blade templating engine is simple and powerful. It provides control structures that allow you to iterate over arrays of data that you might return from your database, conditionally display content, inherit from and extend other layouts, and even abstract reusable components.</p>
-<h2>Naming and usage <a href="#naming-and-usage" name="naming-and-usage" class="text-grey">#</a></h2>
-<p>View files must be <code>camelCase</code>.</p>
+<h2>Naming and usage <a class="text-grey" name="naming-and-usage" href="#naming-and-usage">#</a></h2>
+<p>View filenames must be <code>camelCase</code>.</p>
 <p>View files should be named alongside your routes, wherever possible. It's easier to locate the view file for the <code>users.index</code> route if it is in <code>resources/views/users/index.blade.php</code> and not called <code>accounts.blade.php</code> or <code>userIndex.blade.php</code>.</p>
 <pre><code class="language-php">class UsersController
 {
@@ -83,7 +84,7 @@
   views/
     users/
       index.blade.php</code></pre>
-<h2>Blade Templates <a href="#blade-templates" name="blade-templates" class="text-grey">#</a></h2>
+<h2>Blade Templates <a class="text-grey" name="blade-templates" href="#blade-templates">#</a></h2>
 <p>Always use four spaces for indentation.</p>
 <pre><code class="language-html">&lt;ul&gt;
     &lt;li&gt;&lt;a href="{{ route('users.show', $user) }}"&gt;Michael Dyrynda&lt;/a&gt;&lt;/li&gt;
@@ -100,9 +101,12 @@
 @elseif ( $someOtherCondition )
     Also bad
 @endif</code></pre>
-<p>When working HTML elements that have many attributes, align the attributes one under the other for easier readability. Ensure the closing bracket sits on it's own line, underneath the opening tag's opening bracket. This also aims to reduce unnecessary changes in version control if you were to change the last</p>
-<pre><code class="language-html">&lt;a href="/users/1"
-   class="no-underline hover:underline text-indigo"
+<h2>HTML Attributes <a class="text-grey" name="html-attributes" href="#html-attributes">#</a></h2>
+<p>HTML attributes should always be written in the same order as described in <a href="https://twitter.com/mdo">Mark Otto's</a> <a href="http://codeguide.co/#html-attribute-order">code guide</a>.</p>
+<p>When working with HTML elements that have many attributes, align the attributes one under the other for easier readability. Ensure the closing bracket sits on it's own line, underneath the opening tag's opening bracket.</p>
+<p>This also aims to reduce unnecessary changes in version control if you were to change the last</p>
+<pre><code class="language-html">&lt;a class="no-underline hover:underline text-indigo"
+   href="/users/1"
    title="View user Michael Dyrynda"
 &gt;
     Michael Dyrynda

@@ -8,13 +8,14 @@
     </head>
     <body>
         <div class="h-screen">
-            <div class="flex flex-col-reverse md:flex-row bg-indigo-lightest md:min-h-full -mx-2">
-                <div class="flex-grow w-full md:w-1/5 border-r border-indigo-lighter">
-                    <h1 class="text-2xl font-medium block px-8 mt-4 mb-4">
-                        <a href="/" class="text-indigo-darker no-underline hover:no-underline">Founder</a>
-                    </h1>
-                    <hr class="block h-px w-full bg-indigo-lighter mt-2 mb-4">
-                    <ul class="px-8 mt-6 text-base">
+            <div class="flex flex-col-reverse md:flex-row bg-indigo-lightest md:min-h-full">
+                <div class="flex-grow w-full md:w-1/5 md:border-r md:border-indigo-lighter">
+                    <div class="md:fixed">
+                        <h1 class="text-2xl font-medium block px-8 mt-4 mb-4">
+                            <a href="/" class="text-indigo-darker no-underline hover:no-underline">Founder</a>
+                        </h1>
+                        <hr class="block h-px w-full mt-2 mb-4 md:bg-indigo-lighter md:-mr-2">
+                        <ul class="px-8 mt-6 text-base list-reset">
             <li class="leading-loose font-light">
             <a href="/general">General</a>
         </li>
@@ -52,8 +53,9 @@
             <a href="/migrations-schema">Migrations &amp; Schema</a>
         </li>
     </ul>
+                    </div>
                     <hr class="block md:hidden h-px w-full bg-indigo-lighter mt-2 mb-4">
-                    <div class="mb-4 md:absolute md:pin-b md:pin-l md:ml-4 md:mb-2">
+                    <div class="mb-4 md:fixed md:pin-b md:pin-l md:ml-4 md:mb-2">
                         <a href="https://github.com/michaeldyrynda/founder-style" target="_blank" class="text-base font-light px-8 md:px-2">
                             GitHub
                         </a>
@@ -66,7 +68,7 @@
                         </h1>
                         <hr class="block h-px w-full bg-indigo-lighter text-left mt-2 mb-4">
                         <div class="markdown">
-                            <p>Files that live inside your applications <code>config/</code> directory must use kebab-case.</p>
+                            <p>Files that live inside your application's <code>config/</code> directory must use kebab-case.</p>
 <pre><code>config/
   my-config-file.php</code></pre>
 <p>Within these files, configuration keys must use <code>snake_case</code>.</p>
@@ -74,7 +76,8 @@
 return [
     'my_config_key' =&gt; env('CONFIG_KEY'),
 ];</code></pre>
-<p>You <strong>must not</strong> use the <code>env</code> helper outside of the configuration files. In production deployments, the configuration is cached (using <code>php artisan config:cache</code>), and any calls to the <code>env</code> helper outside of your configuration will return <code>null</code>. Create a corresponding configuration value for the <code>env</code> variable, and be sure to include it in the application's <code>.env.example</code> file.</p>                        </div>
+<p>You <strong>must not</strong> use the <code>env()</code> helper outside of the configuration files. In production deployments, the configuration is cached (using <code>php artisan config:cache</code>), and any calls to the <code>env()</code> helper outside of your configuration will return <code>null</code>.</p>
+<p>Create a corresponding configuration value for the <code>env()</code> variable, and be sure to include it in the application's <code>.env.example</code> file.</p>                        </div>
                     </div>
                 </div>
             </div>

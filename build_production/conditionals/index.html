@@ -8,13 +8,14 @@
     </head>
     <body>
         <div class="h-screen">
-            <div class="flex flex-col-reverse md:flex-row bg-indigo-lightest md:min-h-full -mx-2">
-                <div class="flex-grow w-full md:w-1/5 border-r border-indigo-lighter">
-                    <h1 class="text-2xl font-medium block px-8 mt-4 mb-4">
-                        <a href="/" class="text-indigo-darker no-underline hover:no-underline">Founder</a>
-                    </h1>
-                    <hr class="block h-px w-full bg-indigo-lighter mt-2 mb-4">
-                    <ul class="px-8 mt-6 text-base">
+            <div class="flex flex-col-reverse md:flex-row bg-indigo-lightest md:min-h-full">
+                <div class="flex-grow w-full md:w-1/5 md:border-r md:border-indigo-lighter">
+                    <div class="md:fixed">
+                        <h1 class="text-2xl font-medium block px-8 mt-4 mb-4">
+                            <a href="/" class="text-indigo-darker no-underline hover:no-underline">Founder</a>
+                        </h1>
+                        <hr class="block h-px w-full mt-2 mb-4 md:bg-indigo-lighter md:-mr-2">
+                        <ul class="px-8 mt-6 text-base list-reset">
             <li class="leading-loose font-light">
             <a href="/general">General</a>
         </li>
@@ -52,8 +53,9 @@
             <a href="/migrations-schema">Migrations &amp; Schema</a>
         </li>
     </ul>
+                    </div>
                     <hr class="block md:hidden h-px w-full bg-indigo-lighter mt-2 mb-4">
-                    <div class="mb-4 md:absolute md:pin-b md:pin-l md:ml-4 md:mb-2">
+                    <div class="mb-4 md:fixed md:pin-b md:pin-l md:ml-4 md:mb-2">
                         <a href="https://github.com/michaeldyrynda/founder-style" target="_blank" class="text-base font-light px-8 md:px-2">
                             GitHub
                         </a>
@@ -67,7 +69,7 @@
                         <hr class="block h-px w-full bg-indigo-lighter text-left mt-2 mb-4">
                         <div class="markdown">
                             <p>Conditionals are a common part of any application, but there are a few simple conventions you can follow which makes them easier to parse when scanning through a file.</p>
-<h2>Avoid <code>if</code>/<code>elseif</code>/<code>else</code> chains <a href="#avoid-if-elseif-else-chains" name="avoid-if-elseif-else-chains" class="text-grey">#</a></h2>
+<h2>Avoid <code>if</code>/<code>elseif</code>/<code>else</code> chains <a class="text-grey" name="avoid-if-elseif-else-chains" href="#avoid-if-elseif-else-chains">#</a></h2>
 <p>It is often easier to reason about the execution path of conditional behaviour using <a href="https://refactoring.com/catalog/replaceNestedConditionalWithGuardClauses.html">Guard Clauses</a>, rather than chaining one or more <code>elseif</code> or <code>else</code> statements.</p>
 <p>In general, handling error conditions early in your conditional block works best; it allows you to see upfront any conditions that would cause an error.</p>
 <pre><code class="language-php">// Good
@@ -89,9 +91,9 @@ public function update($service)
         abort(403);
     }
 }</code></pre>
-<h2>Avoid nested conditionals <a href="#avoid-nested-conditionals" name="avoid-nested-conditionals" class="text-grey">#</a></h2>
+<h2>Avoid nested conditionals <a class="text-grey" name="avoid-nested-conditionals" href="#avoid-nested-conditionals">#</a></h2>
 <p>Whenever possible, avoid deep-nesting and look for opportunities to either extract complex conditional logic to methods or return early.</p>
-<h2>Ternary operations <a href="#ternary-operations" name="ternary-operations" class="text-grey">#</a></h2>
+<h2>Ternary operations <a class="text-grey" name="ternary-operations" href="#ternary-operations">#</a></h2>
 <p>Unless you are dealing with very short ternary conditions, each expression should be on its own line.</p>
 <pre><code class="language-php">// Good
 return $this-&gt;type
@@ -99,7 +101,8 @@ return $this-&gt;type
     : false;
 
 // Bad
-return $this-&gt;type ? $this-&gt;type-&gt;ContactTypeID === ContactType::TYPE_ACCOUNT_OWNER : false;</code></pre>                        </div>
+return $this-&gt;type ? $this-&gt;type-&gt;ContactTypeID === ContactType::TYPE_ACCOUNT_OWNER : false;</code></pre>
+<p>Avoid nesting ternary operations. They are trickier to reason about and don't necessarily execute in the order you expect.</p>                        </div>
                     </div>
                 </div>
             </div>

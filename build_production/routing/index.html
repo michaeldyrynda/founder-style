@@ -8,13 +8,14 @@
     </head>
     <body>
         <div class="h-screen">
-            <div class="flex flex-col-reverse md:flex-row bg-indigo-lightest md:min-h-full -mx-2">
-                <div class="flex-grow w-full md:w-1/5 border-r border-indigo-lighter">
-                    <h1 class="text-2xl font-medium block px-8 mt-4 mb-4">
-                        <a href="/" class="text-indigo-darker no-underline hover:no-underline">Founder</a>
-                    </h1>
-                    <hr class="block h-px w-full bg-indigo-lighter mt-2 mb-4">
-                    <ul class="px-8 mt-6 text-base">
+            <div class="flex flex-col-reverse md:flex-row bg-indigo-lightest md:min-h-full">
+                <div class="flex-grow w-full md:w-1/5 md:border-r md:border-indigo-lighter">
+                    <div class="md:fixed">
+                        <h1 class="text-2xl font-medium block px-8 mt-4 mb-4">
+                            <a href="/" class="text-indigo-darker no-underline hover:no-underline">Founder</a>
+                        </h1>
+                        <hr class="block h-px w-full mt-2 mb-4 md:bg-indigo-lighter md:-mr-2">
+                        <ul class="px-8 mt-6 text-base list-reset">
             <li class="leading-loose font-light">
             <a href="/general">General</a>
         </li>
@@ -52,8 +53,9 @@
             <a href="/migrations-schema">Migrations &amp; Schema</a>
         </li>
     </ul>
+                    </div>
                     <hr class="block md:hidden h-px w-full bg-indigo-lighter mt-2 mb-4">
-                    <div class="mb-4 md:absolute md:pin-b md:pin-l md:ml-4 md:mb-2">
+                    <div class="mb-4 md:fixed md:pin-b md:pin-l md:ml-4 md:mb-2">
                         <a href="https://github.com/michaeldyrynda/founder-style" target="_blank" class="text-base font-light px-8 md:px-2">
                             GitHub
                         </a>
@@ -66,13 +68,13 @@
                         </h1>
                         <hr class="block h-px w-full bg-indigo-lighter text-left mt-2 mb-4">
                         <div class="markdown">
-                            <p>All application routes must use kebab-case, all route names must use <code>camelCase</code>.</p>
+                            <p>All application routes must use kebab-case and all route names must use <code>camelCase</code>.</p>
 <pre><code class="language-php">// http://example.com/my-endpoint
 Route::get('my-endpoint', 'MyEndpointController@index')-&gt;name('myEndpoint');</code></pre>
 <pre><code class="language-html">&lt;a href="{{ route('myEndpoint') }}"&gt;
     My Endpoint
 &lt;/a&gt;</code></pre>
-<h2>Route declaration <a href="#route-declaration" name="route-declaration" class="text-grey">#</a></h2>
+<h2>Route declaration <a class="text-grey" name="route-declaration" href="#route-declaration">#</a></h2>
 <p>When declaring routes in your application, be sure to always define the HTTP verb first. This makes it much easier to visually scan the routes file.</p>
 <pre><code class="language-php">// Good
 Route::get('my-endpoint', 'MyEndpointController@index')-&gt;name('myEndpoint');

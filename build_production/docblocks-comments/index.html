@@ -8,13 +8,14 @@
     </head>
     <body>
         <div class="h-screen">
-            <div class="flex flex-col-reverse md:flex-row bg-indigo-lightest md:min-h-full -mx-2">
-                <div class="flex-grow w-full md:w-1/5 border-r border-indigo-lighter">
-                    <h1 class="text-2xl font-medium block px-8 mt-4 mb-4">
-                        <a href="/" class="text-indigo-darker no-underline hover:no-underline">Founder</a>
-                    </h1>
-                    <hr class="block h-px w-full bg-indigo-lighter mt-2 mb-4">
-                    <ul class="px-8 mt-6 text-base">
+            <div class="flex flex-col-reverse md:flex-row bg-indigo-lightest md:min-h-full">
+                <div class="flex-grow w-full md:w-1/5 md:border-r md:border-indigo-lighter">
+                    <div class="md:fixed">
+                        <h1 class="text-2xl font-medium block px-8 mt-4 mb-4">
+                            <a href="/" class="text-indigo-darker no-underline hover:no-underline">Founder</a>
+                        </h1>
+                        <hr class="block h-px w-full mt-2 mb-4 md:bg-indigo-lighter md:-mr-2">
+                        <ul class="px-8 mt-6 text-base list-reset">
             <li class="leading-loose font-light">
             <a href="/general">General</a>
         </li>
@@ -52,8 +53,9 @@
             <a href="/migrations-schema">Migrations &amp; Schema</a>
         </li>
     </ul>
+                    </div>
                     <hr class="block md:hidden h-px w-full bg-indigo-lighter mt-2 mb-4">
-                    <div class="mb-4 md:absolute md:pin-b md:pin-l md:ml-4 md:mb-2">
+                    <div class="mb-4 md:fixed md:pin-b md:pin-l md:ml-4 md:mb-2">
                         <a href="https://github.com/michaeldyrynda/founder-style" target="_blank" class="text-base font-light px-8 md:px-2">
                             GitHub
                         </a>
@@ -67,7 +69,7 @@
                         <hr class="block h-px w-full bg-indigo-lighter text-left mt-2 mb-4">
                         <div class="markdown">
                             <p>Whilst docblocks can be useful for introducing new developers in your codebase to your functions, it is much too easy for them to fall out of sync with your actual implementation if you're not careful. Avoid them wherever possible by writing expressive code.</p>
-<p><strong>Never</strong> leave code commented out in your codebase. Your version control system is responsible for handling code that was - or should be - deleted.</p>
+<p><strong>Never</strong> leave commented out code in your application. Your version control system is responsible for handling code that was - or should be - deleted.</p>
 <p>Comments that describe the purpose of some method are usually a good indicator that the method is not clearly named.</p>
 <pre><code class="language-php">// Good
 public function recentServiceSignups()
@@ -122,7 +124,7 @@ class Service
         // ...
     }
 }</code></pre>
-<p>When necessary, however, always use the fully-qualified class name in your docblocks.</p>
+<p>When necessary, always use the fully-qualified class name in your docblocks.</p>
 <pre><code class="language-php">// Good
 
 /**
