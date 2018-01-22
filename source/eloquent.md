@@ -16,13 +16,13 @@ Explicit safety, right in your controllers - rather than the implicit and somewh
 
 The PSR-2 styles that are used with Founder define the order various components should be defined within a class. In the specific case of Eloquent models, the following convention should be used for ordering.
 
-* &bull; `use` statements (traits)
-* &bull; Properties, with framework-defined properties taking precedence over application-defined ones
-* &bull; Magic methods
-* &bull; `boot` method
-* &bull; Named (static) constructors
-* &bull; Query scopes
-* &bull; Mutators and accessors (grouping each mutator / accessor pair)
+* `use` statements (traits)
+* Properties, with framework-defined properties taking precedence over application-defined ones
+* Magic methods
+* `boot` method
+* Named (static) constructors
+* Query scopes
+* Mutators and accessors (grouping each mutator / accessor pair)
 
 ## Abstracting relationships <a class="text-grey" name="abstracting-relationships" href="#abstracting-relationships">#</a>
 
