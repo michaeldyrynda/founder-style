@@ -18,6 +18,8 @@ You are of course free to add, change, and remove any packages from the [`compos
   * Many of our apps are internally facing, so there is no public registration. This package makes adding your first - typically admin - user a cinch.
 * [friendsofphp/php-cs-fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer)
   * Ensures that the code style and formatting of each project is consistent, using rules defined in the [`.php_cs` file](https://github.com/michaeldyrynda/founder/blob/master/.php_cs).
+* [hemp/presenter](https://github.com/davidhemphill/presenter)
+  * When your models start to get filled with accessors, creating a presenter is a good way to separate the logic and clean up your model.
 * [laracasts/flash](https://github.com/laracasts/flash)
   * A package to handle displaying notification messages within your application.
 * [laravel/horizon](https://github.com/laravel/horizon)
