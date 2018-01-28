@@ -55,7 +55,7 @@ If your method is typehinted, or its intent is clear, avoid needless docblocks.
 // Good
 class Service
 {
-    public static function createFromSignup(array $details) : Service
+    public static function createFromDetails(array $details) : Service
     {
         // ...
     }
@@ -71,7 +71,7 @@ class Service
      *
      * @return \App\Entities\Service
      */
-    public static function createFromSignup(array $details) : Service
+    public static function createFromDetails(array $details) : Service
     {
         // ...
     }
