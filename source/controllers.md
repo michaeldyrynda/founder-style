@@ -48,6 +48,10 @@ Don't be afraid to add a few resource-specific methods to your controller, but i
 
 [Adam Wathan](https://twitter.com/adamwathan) gave an [excellent talk](https://youtu.be/MF0jFKvS4SI) at Laracon US 2017 that expands on this concept in greater detail.
 
+## Nested controllers <a class="text-grey" name="nested-controllers" href="#nested-controllers">#</a>
+
+When creating controllers for your nested resources, use the singular name for the parent resource and the plural name for the child resource i.e. `ServiceContactsController` not `ServicesContactsController`.
+
 ## Authorisation <a class="text-grey" name="authorisation" href="#authorisation">#</a>
 
 In most cases, authorisation for a controller action should be the first action carried out in your controllers.
