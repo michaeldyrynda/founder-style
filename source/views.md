@@ -77,3 +77,9 @@ This also aims to reduce unnecessary changes in version control if you were to c
     Michael Dyrynda
 </a>
 ```
+
+## View composers <a class="text-grey" name="view-composers" href="#view-composers">#</a>
+
+<a href="https://laravel.com/docs/5.5/views#view-composers">View composers</a> allow you to inject data into each specified view in your application. They are useful, for example, to push the authenticatd user into all of your views and indeed whether or not you have an authenticated user at all.
+
+Use View Composers with caution, however, as whilst they are a good way to share data with your views, it is not always apparent to a new - or even return - developer in your codebase to know where the variables come from and where they are defined. If you do use them, create a fresh [Service Provider](https://laravel.com/docs/5.5/providers) and be sure to include `Composer` in the class name to make its purpose clear.
