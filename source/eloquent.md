@@ -2,6 +2,10 @@
 extends: _layouts.master
 section: content
 title: Eloquent
+previousLink: /validation
+previous: Validation
+nextLink: /migrations-schema
+next: Migrations & Schema
 ---
 
 The base model has one purpose out of the box; it sets the `$guarded` property to an empty array. This means you can avoid those situations where you forgot to update the `$fillable` property and were hit with a `MassAssignmentException`.

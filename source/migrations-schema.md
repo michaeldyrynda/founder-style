@@ -2,6 +2,8 @@
 extends: _layouts.master
 section: content
 title: Migrations & Schema
+previousLink: /eloquent
+previous: Eloquent
 ---
 
 ## Modifying migrations <a class="text-grey" name="modifying-migrations" href="#modifying-migrations">#</a>

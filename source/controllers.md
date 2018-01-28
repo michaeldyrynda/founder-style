@@ -2,6 +2,10 @@
 extends: _layouts.master
 section: content
 title: Controllers
+previousLink: /routing
+previous: Routing
+nextLink: /views
+next: Views
 ---
 
 Controllers that are responsible for managing a resource must use the plural version of the resource in their name.

@@ -2,6 +2,10 @@
 extends: _layouts.master
 section: content
 title: Validation
+previousLink: /views
+previous: Views
+nextLink: /eloquent
+next: Eloquent
 ---
 
 When referencing validation rules, you must always use the array syntax, rather than pipe-delimited strings.

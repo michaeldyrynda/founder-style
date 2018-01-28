@@ -2,6 +2,10 @@
 extends: _layouts.master
 section: content
 title: Production
+previousLink: /general
+previous: General
+nextLink: /packages
+next: Packages
 ---
 
 ## Forge deployment <a class="text-grey" name="forge-deployment" href="#forge-deployment">#</a>

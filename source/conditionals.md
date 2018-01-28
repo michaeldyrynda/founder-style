@@ -2,6 +2,10 @@
 extends: _layouts.master
 section: content
 title: Conditionals
+previousLink: /docblocks-comments
+previous: Docblocks & Comments
+nextLink: /configuration
+next: Configuration
 ---
 
 Conditionals are a common part of any application, but there are a few simple conventions you can follow which makes them easier to parse when scanning through a file.

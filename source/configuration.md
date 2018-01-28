@@ -2,6 +2,10 @@
 extends: _layouts.master
 section: content
 title: Configuration
+previousLink: /conditionals
+previous: Conditionals
+nextLink: /routing
+next: Routing
 ---
 
 Files that live inside your application's `config/` directory must use kebab-case.

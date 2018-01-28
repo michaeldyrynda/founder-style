@@ -2,6 +2,8 @@
 extends: _layouts.master
 section: content
 title: Style Guide
+nextLink: /general
+next: General
 ---
 
 ## Introduction <a class="text-grey" name="introduction" href="#introduction">#</a>

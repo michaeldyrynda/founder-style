@@ -33,6 +33,18 @@
                         <div class="markdown">
                             @yield('content')
                         </div>
+                        <div class="flex justify-between mt-6 pt-4  border-t border-indigo-lighter">
+                            <div class="w-1/2">
+                                @if($page->previous)
+                                    <a href="{{ $page->previousLink }}">{{ $page->previous }}</a>
+                                @endif
+                            </div>
+                            <div class="w-1/2">
+                                @if($page->next)
+                                    <a href="{{ $page->nextLink }}">{{ $page->next }}</a>
+                                @endif
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

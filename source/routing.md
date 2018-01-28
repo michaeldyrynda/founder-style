@@ -2,6 +2,10 @@
 extends: _layouts.master
 section: content
 title: Routing
+previousLink: /configuration
+previous: Configuration
+nextLink: /controllers
+next: Controllers
 ---
 
 All application routes must use kebab-case and all route names must use `camelCase`.

@@ -2,6 +2,10 @@
 extends: _layouts.master
 section: content
 title: Views
+previousLink: /controllers
+previous: Controllers
+nextLink: /validation
+next: Validation
 ---
 
 Views are a means for displaying your data. You should always strive to keep any logic and calculations out of your views at all times, instead carrying out all of this implementation in your controllers. This leaves your views slim and simple to reason about.
