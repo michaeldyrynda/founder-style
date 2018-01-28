@@ -28,7 +28,7 @@ request()->validate([
 
 ## Simple custom validation rules <a class="text-grey" name="simple-custom-validation-rules" href="#simple-custom-validation-rules">#</a>
 
-When declaring simple validation rules, always use `snake_case`.
+When declaring simple validation rules, always use `snake_case` per the Laravel framework convention.
 
 ```php
 Validator::extend('phone_number', function ($attribute, $value) {
