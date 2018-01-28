@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <link rel="stylesheet" href="/css/main.css?id=baed5c21ce3d80a3f66f">
+        <link rel="stylesheet" href="/css/main.css?id=d0350bf7d26a861daf81">
     </head>
     <body>
         <div class="h-screen">
@@ -70,7 +70,8 @@
                         <div class="markdown">
                             <h2>Forge deployment <a class="text-grey" name="forge-deployment" href="#forge-deployment">#</a></h2>
 <p>When deploying applications with <a href="https://forge.laravel.com">Laravel Forge</a> for the first time, do not select <em>Install Composer Dependencies</em>.</p>
-<p>Be sure to keep any of your production environment configuration variables up to date in the <a href="https://github.com/michaeldyrynda/founder/blob/master/.env.production.example"><code>.env.production.example</code> file</a>, which you can copy into your application's environment using the Forge interface.</p>
+<p>Be sure to keep any of your production environment configuration variables up to date in the <a href="https://github.com/michaeldyrynda/founder/blob/master/.env.production.example"><code>.env.production.example</code> file</a>, which you can copy into your application's environment using the Forge interface. Remember, <strong>no sensitive configuration should be added to this, or any other file, in version control.</strong></p>
+<p>It is useful to store production-specific configuration in <code>.env.production.example</code>, such as defining your cache and session drivers as <code>redis</code> instead of <code>file</code> or that debug should be disabled.</p>
 <p>The following deployment script should be used on a PHP 7.1 host, and can be executed once the application repository has been installed by clicking on the <em>Deploy Now</em> button.</p>
 <pre><code>cd /home/forge/{{ site_name }}
 git pull origin master
@@ -96,10 +97,18 @@ fi</code></pre>
 <p>Go to your server in Forge and click on <em>Daemons</em>.</p>
 <img src="/images/horizon-config.png" class="mx-auto" alt="Horizon daemon config">
 <p>The <code>php artisan horizon:terminate</code> command that is part of the deployment script will handle gracefully terminating and restarting Horizon on each deployment.</p>                        </div>
+                        <div class="flex justify-between mt-6 pt-4  border-t border-indigo-lighter">
+                            <div class="w-1/2">
+                                                                    <a href="/general">General</a>
+                                                            </div>
+                            <div class="w-1/2">
+                                                                    <a href="/packages">Packages</a>
+                                                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </body>
-    <script src="/js/app.js?id=670e8c263b6b71981ba9"></script>
+    <script src="/js/app.js?id=e30f9a8006c930fc2816"></script>
 </html>

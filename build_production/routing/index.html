@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <link rel="stylesheet" href="/css/main.css?id=baed5c21ce3d80a3f66f">
+        <link rel="stylesheet" href="/css/main.css?id=d0350bf7d26a861daf81">
     </head>
     <body>
         <div class="h-screen">
@@ -68,25 +68,50 @@
                         </h1>
                         <hr class="block h-px w-full bg-indigo-lighter text-left mt-2 mb-4">
                         <div class="markdown">
-                            <p>All application routes must use kebab-case and all route names must use <code>camelCase</code>.</p>
-<pre><code class="language-php">// http://example.com/my-endpoint
-Route::get('my-endpoint', 'MyEndpointController@index')-&gt;name('myEndpoint');</code></pre>
-<pre><code class="language-html">&lt;a href="{{ route('myEndpoint') }}"&gt;
-    My Endpoint
+                            <p>Always try and keep your endpoints RESTful wherever possible, using the seven operations as described in the <a href="/controllers#restful-controllers">RESTful controllers</a> documentation.</p>
+<pre><code class="language-php">// http://example.com/articles
+Route::get('articles', 'ArticlesController@index')-&gt;name('articles.index');</code></pre>
+<pre><code class="language-html">&lt;a href="{{ route('articles.index') }}"&gt;
+    Articles
 &lt;/a&gt;</code></pre>
+<h2>Route parameters <a class="text-grey" name="route-parameters" href="#route-parameters">#</a></h2>
+<p>When specifying parameters, use the singular form of the resource name.</p>
+<pre><code class="language-php">// Good
+Route::get('articles/{article}', 'ArticlesController@show')-&gt;name('articles.show');
+
+// Bad
+Route::get('articles/{articles}', 'ArticlesController@show')-&gt;name('articles.show');</code></pre>
+<p>When declaring nested route names, use the singular form of the parent resource and plural for the child.</p>
+<pre><code class="language-php">// Good
+Route::post('articles/{article}/comments', 'ArticleCommentsController@store')
+     -&gt;name('article.comments.store');
+
+// Bad
+Route::post('articles/{article}/comments', 'ArticleCommentsController@store')
+     -&gt;name('articles.comments.store');</code></pre>
 <h2>Route declaration <a class="text-grey" name="route-declaration" href="#route-declaration">#</a></h2>
 <p>When declaring routes in your application, be sure to always define the HTTP verb first. This makes it much easier to visually scan the routes file.</p>
 <pre><code class="language-php">// Good
-Route::get('my-endpoint', 'MyEndpointController@index')-&gt;name('myEndpoint');
-Route::post('your-endpoint', 'YourEndpointController@store')-&gt;name('yourEndpoint');
+Route::get('articles', 'ArticlesController@index')-&gt;name('articles.index');
+Route::post('articles/{article}/comments', 'ArticleCommentsController@store')
+     -&gt;name('article.comments.store');
 
 // Bad
-Route::name('myEndpoint')-&gt;get('my-endpoint', 'MyEndpointController@index');
-Route::name('yourEndpoint')-&gt;post('your-endpoint', 'YourEndpointController@store');</code></pre>                        </div>
+Route::name('articles.index')-&gt;get('articles', 'ArticlesController@index');
+Route::name('article.comments.store')
+     -&gt;post('articles/{article}/comments', 'ArticleCommentsController@store');</code></pre>                        </div>
+                        <div class="flex justify-between mt-6 pt-4  border-t border-indigo-lighter">
+                            <div class="w-1/2">
+                                                                    <a href="/configuration">Configuration</a>
+                                                            </div>
+                            <div class="w-1/2">
+                                                                    <a href="/controllers">Controllers</a>
+                                                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </body>
-    <script src="/js/app.js?id=670e8c263b6b71981ba9"></script>
+    <script src="/js/app.js?id=e30f9a8006c930fc2816"></script>
 </html>

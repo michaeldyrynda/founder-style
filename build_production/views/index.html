@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <link rel="stylesheet" href="/css/main.css?id=baed5c21ce3d80a3f66f">
+        <link rel="stylesheet" href="/css/main.css?id=d0350bf7d26a861daf81">
     </head>
     <body>
         <div class="h-screen">
@@ -89,7 +89,7 @@
 <pre><code class="language-html">&lt;ul&gt;
     &lt;li&gt;&lt;a href="{{ route('users.show', $user) }}"&gt;Michael Dyrynda&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</code></pre>
-<p>Control structures should not be surrounded by, or contain spaces.</p>
+<p>Control structures should not be surrounded by, or contain spaces. Whilst this is not necessarily &quot;better&quot; or &quot;worse&quot; than alternatives, it is a stylistic choice of formatting for projects based on <a href="https://github.com/michaeldyrynda/founder">Founder</a>.</p>
 <pre><code>// Good
 @if($condition)
     Something good
@@ -110,11 +110,22 @@
    title="View user Michael Dyrynda"
 &gt;
     Michael Dyrynda
-&lt;/a&gt;</code></pre>                        </div>
+&lt;/a&gt;</code></pre>
+<h2>View composers <a class="text-grey" name="view-composers" href="#view-composers">#</a></h2>
+<p><a href="https://laravel.com/docs/5.5/views#view-composers">View composers</a> allow you to inject data into each specified view in your application. They are useful, for example, to push the authenticatd user into all of your views and indeed whether or not you have an authenticated user at all.</p>
+<p>Use View Composers with caution, however, as whilst they are a good way to share data with your views, it is not always apparent to a new - or even return - developer in your codebase to know where the variables come from and where they are defined. If you do use them, create a fresh <a href="https://laravel.com/docs/5.5/providers">Service Provider</a> and be sure to include <code>Composer</code> in the class name to make its purpose clear.</p>                        </div>
+                        <div class="flex justify-between mt-6 pt-4  border-t border-indigo-lighter">
+                            <div class="w-1/2">
+                                                                    <a href="/controllers">Controllers</a>
+                                                            </div>
+                            <div class="w-1/2">
+                                                                    <a href="/validation">Validation</a>
+                                                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </body>
-    <script src="/js/app.js?id=670e8c263b6b71981ba9"></script>
+    <script src="/js/app.js?id=e30f9a8006c930fc2816"></script>
 </html>

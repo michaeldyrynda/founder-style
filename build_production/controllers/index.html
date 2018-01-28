@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <link rel="stylesheet" href="/css/main.css?id=baed5c21ce3d80a3f66f">
+        <link rel="stylesheet" href="/css/main.css?id=d0350bf7d26a861daf81">
     </head>
     <body>
         <div class="h-screen">
@@ -80,10 +80,24 @@ class ServiceController
 {
     // ...
 }</code></pre>
+<p>The only exception to this rule is for those resources that would be considered &quot;uncountable&quot;.</p>
+<pre><code class="language-php">// Bad
+class CattlesController
+{
+    // ...
+}
+
+// Good
+class CattleController
+{
+    // ...
+}</code></pre>
 <h2>RESTful controllers <a class="text-grey" name="restful-controllers" href="#restful-controllers">#</a></h2>
 <p>Always strive to use the seven RESTful actions in your controllers: <code>index</code>, <code>create</code>, <code>store</code>, <code>show</code>, <code>edit</code>, <code>update</code>, and <code>destroy</code>. When you keep your controllers to these actions, they're easier to read and more closely adhere to a single responsibility mindset.</p>
 <p>Don't be afraid to add a few resource-specific methods to your controller, but if you find yourself adding too many methods that apply to specific resource relationships, for example, then strive to name the relationships you're working with and create a new controller. <em>Never be afraid to add another controller!</em>.</p>
 <p><a href="https://twitter.com/adamwathan">Adam Wathan</a> gave an <a href="https://youtu.be/MF0jFKvS4SI">excellent talk</a> at Laracon US 2017 that expands on this concept in greater detail.</p>
+<h2>Nested controllers <a class="text-grey" name="nested-controllers" href="#nested-controllers">#</a></h2>
+<p>When creating controllers for your nested resources, use the singular name for the parent resource and the plural name for the child resource i.e. <code>ServiceContactsController</code> not <code>ServicesContactsController</code>.</p>
 <h2>Authorisation <a class="text-grey" name="authorisation" href="#authorisation">#</a></h2>
 <p>In most cases, authorisation for a controller action should be the first action carried out in your controllers.</p>
 <p>Using this as a guard clause enables you to return early without processing logic an unauthorised user doesn't have access to and aids in preventing inadvertently leaking information to unauthorised users.</p>
@@ -132,10 +146,18 @@ public function show(Service $service)
     // Laravel will return a ModelNotFoundException and in turn a 404.
 }</code></pre>
 <p>In many cases, the default implicit binding will suffice. If you want to use a column other than the model's <code>id</code>, you can set the value using the model's <code>getRouteKeyName()</code> method. For more complex lookups, can make use of <a href="https://laravel.com/docs/5.5/routing#explicit-binding">explicit binding</a>.</p>                        </div>
+                        <div class="flex justify-between mt-6 pt-4  border-t border-indigo-lighter">
+                            <div class="w-1/2">
+                                                                    <a href="/routing">Routing</a>
+                                                            </div>
+                            <div class="w-1/2">
+                                                                    <a href="/views">Views</a>
+                                                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </body>
-    <script src="/js/app.js?id=670e8c263b6b71981ba9"></script>
+    <script src="/js/app.js?id=e30f9a8006c930fc2816"></script>
 </html>

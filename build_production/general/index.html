@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <link rel="stylesheet" href="/css/main.css?id=baed5c21ce3d80a3f66f">
+        <link rel="stylesheet" href="/css/main.css?id=d0350bf7d26a861daf81">
     </head>
     <body>
         <div class="h-screen">
@@ -72,7 +72,7 @@
 <p>Any variables declared within the context of your application must use <code>camelCase</code> syntax, except where noted otherwise in this guide.</p>
 <p>Always strive to keep your code expressive and human-readable. Make it easy for the next developer that looks at the code to be able to reason about your intent. Realise that that developer could well be you trying to fix an issue at 4pm on a Friday, six months from now.</p>
 <h2>Should I rename my application? <a class="text-grey" name="should-i-rename-my-application" href="#should-i-rename-my-application">#</a></h2>
-<p>Laravel ships with an <code>app:name</code> command. <em>Never</em> renaming your application. This reduces cognitive overhead between applications such that you can always import your application's classes from the <code>App</code> namespace, when the namespace doesn't change when jumping between projects.</p>
+<p>Laravel ships with an <code>app:name</code> command. <em>Never</em> rename your application. Keeping the <code>App</code> namespace reduces cognitive overhead between applications such that you always always import each application's classes from the same namespace when working between different projects.</p>
 <h2>Whitespace <a class="text-grey" name="whitespace" href="#whitespace">#</a></h2>
 <p>PHP will be interpreted whether you write it with no whitespace or if you write it with double spacing. For readability, it is better to cater to your fellow developers rather than for the PHP interpreter. Don't be afraid to use whitespace.</p>
 <pre><code class="language-php">// Good
@@ -169,7 +169,7 @@ public function store(Post $post)
 <p>The Law of Demeter helps to decouple your code by encouraging you to ensure that each unit only has limited knowledge of other units. That is to say that your controller should not need to know how specifically a <code>Comment</code> is added to a <code>Post</code>.</p>
 <p>Instead, consider abstract this implementation detail behind a new method. In doing so, your controller needn't know how a <code>Post</code> and <code>Comment</code> would be related, and if the implementation changes, the call to do so doesn't. SOLID!</p>
 <pre><code class="language-php">// Post.php
-public function addComment($comment)
+public function addComment($author, $comment)
 {
     $this-&gt;comments()-&gt;create([
         'author_id' =&gt; $author-&gt;id,
@@ -184,10 +184,18 @@ public function store(Post $post)
 
     return redirect()-&gt;route('posts.show', $post);
 }</code></pre>                        </div>
+                        <div class="flex justify-between mt-6 pt-4  border-t border-indigo-lighter">
+                            <div class="w-1/2">
+                                                                    <a href="/">Home</a>
+                                                            </div>
+                            <div class="w-1/2">
+                                                                    <a href="/production">Production</a>
+                                                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </body>
-    <script src="/js/app.js?id=670e8c263b6b71981ba9"></script>
+    <script src="/js/app.js?id=e30f9a8006c930fc2816"></script>
 </html>
