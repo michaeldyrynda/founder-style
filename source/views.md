@@ -45,7 +45,7 @@ Always use four spaces for indentation.
 </ul>
 ```
 
-Control structures should not be surrounded by, or contain spaces.
+Control structures should not be surrounded by, or contain spaces. Whilst this is not necessarily "better" or "worse" than alternatives, it is a stylistic choice of formatting for projects based on [Founder](https://github.com/michaeldyrynda/founder).
 
 ```
 // Good
