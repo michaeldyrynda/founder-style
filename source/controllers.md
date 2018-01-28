@@ -20,6 +20,22 @@ class ServiceController
 }
 ```
 
+The only exception to this rule is for those resources that would be considered "uncountable".
+
+```php
+// Bad
+class CattlesController
+{
+    // ...
+}
+
+// Good
+class CattleController
+{
+    // ...
+}
+```
+
 ## RESTful controllers <a class="text-grey" name="restful-controllers" href="#restful-controllers">#</a>
 
 Always strive to use the seven RESTful actions in your controllers: `index`, `create`, `store`, `show`, `edit`, `update`, and `destroy`. When you keep your controllers to these actions, they're easier to read and more closely adhere to a single responsibility mindset.
