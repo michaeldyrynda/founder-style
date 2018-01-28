@@ -8,7 +8,9 @@ title: Production
 
 When deploying applications with [Laravel Forge](https://forge.laravel.com) for the first time, do not select *Install Composer Dependencies*.
 
-Be sure to keep any of your production environment configuration variables up to date in the [`.env.production.example` file](https://github.com/michaeldyrynda/founder/blob/master/.env.production.example), which you can copy into your application's environment using the Forge interface.
+Be sure to keep any of your production environment configuration variables up to date in the [`.env.production.example` file](https://github.com/michaeldyrynda/founder/blob/master/.env.production.example), which you can copy into your application's environment using the Forge interface. Remember, **no sensitive configuration should be added to this, or any other file, in version control.**
+
+It is useful to store production-specific configuration in `.env.production.example`, such as defining your cache and session drivers as `redis` instead of `file` or that debug should be disabled.
 
 The following deployment script should be used on a PHP 7.1 host, and can be executed once the application repository has been installed by clicking on the *Deploy Now* button.
 
