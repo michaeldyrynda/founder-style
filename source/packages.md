@@ -8,7 +8,7 @@ Since the arrival of [Composer](https://getcomposer.org), copying and pasting co
 
 Not only have Composer and [Packagist](https://packagist.org) made it very simple for you to share your own code between your projects, they have also help you to save time by pulling in packages that other developers have written, so that you can focus on achieving your application-specific goals.
 
-To that end, Founder installs a few packages in addition to the Laravel defaults that solve problems that are encountered in many of the most applications. The goal of Founder is not, however, to include the kitchen sink.
+To that end, [Founder](https://github.com/michaeldyrynda/founder) installs a few packages in addition to the Laravel defaults that solve problems that are encountered in many of the most applications. The goal of Founder is not, however, to include the kitchen sink.
 
 You are of course free to add, change, and remove any packages from the [`composer.json` file](https://github.com/michaeldyrynda/founder/blob/master/composer.json) as you see fit.
 
