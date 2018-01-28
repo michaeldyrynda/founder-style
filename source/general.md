@@ -143,7 +143,7 @@ Instead, consider abstract this implementation detail behind a new method. In do
 
 ```php
 // Post.php
-public function addComment($comment)
+public function addComment($author, $comment)
 {
     $this->comments()->create([
         'author_id' => $author->id,
