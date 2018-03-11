@@ -78,7 +78,7 @@ git pull origin master
 composer install --no-interaction --prefer-dist --optimize-autoloader --no-scripts
 yarn --silent --no-emoji --no-progress
 npm run prod -s --no-progress
-echo "" | sudo -S service php7.1-fpm reload
+echo "" | sudo -S service php7.2-fpm reload
 
 if [ -f artisan ]
 then
