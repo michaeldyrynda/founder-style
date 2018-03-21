@@ -73,6 +73,22 @@
 <p>Always strive to keep your code expressive and human-readable. Make it easy for the next developer that looks at the code to be able to reason about your intent. Realise that that developer could well be you trying to fix an issue at 4pm on a Friday, six months from now.</p>
 <h2>Should I rename my application? <a class="text-grey" name="should-i-rename-my-application" href="#should-i-rename-my-application">#</a></h2>
 <p>Laravel ships with an <code>app:name</code> command. <em>Never</em> rename your application. Keeping the <code>App</code> namespace reduces cognitive overhead between applications such that you always always import each application's classes from the same namespace when working between different projects.</p>
+<h2>Composer scripts <a class="text-grey" name="composer scripts" href="#composer scripts">#</a></h2>
+<p>In order to ensure tasks are consistently ran between environments, a number of scripts are included in the <a href="https://github.com/michaeldyrynda/founder/blob/master/composer.json"><code>composer.json</code> file</a>.</p>
+<ul>
+<li><code>cs-fix</code>
+<ul>
+<li>Apply code style fixes, as defined in the project's <a href="https://github.com/michaeldyrynda/founder/blob/master/.php_cs"><code>.php_cs</code> file</a></li>
+</ul></li>
+<li><code>check-security</code>
+<ul>
+<li>Check your application isn't using dependencies with known security vulnerabilities, using <a href="https://github.com/sensiolabs/security-checker">sensiolabs/security-checker</a></li>
+</ul></li>
+<li><code>test</code>
+<ul>
+<li>Run your application's full test suite</li>
+</ul></li>
+</ul>
 <h2>Whitespace <a class="text-grey" name="whitespace" href="#whitespace">#</a></h2>
 <p>PHP will be interpreted whether you write it with no whitespace or if you write it with double spacing. For readability, it is better to cater to your fellow developers rather than for the PHP interpreter. Don't be afraid to use whitespace.</p>
 <pre><code class="language-php">// Good
