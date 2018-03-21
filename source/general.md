@@ -18,6 +18,17 @@ Always strive to keep your code expressive and human-readable. Make it easy for 
 
 Laravel ships with an `app:name` command. *Never* rename your application. Keeping the `App` namespace reduces cognitive overhead between applications such that you always always import each application's classes from the same namespace when working between different projects.
 
+## Composer scripts <a class="text-grey" name="composer scripts" href="#composer scripts">#</a>
+
+In order to ensure tasks are consistently ran between environments, a number of scripts are included in the [`composer.json` file](https://github.com/michaeldyrynda/founder/blob/master/composer.json).
+
+* `cs-fix`
+ * Apply code style fixes, as defined in the project's [`.php_cs` file](https://github.com/michaeldyrynda/founder/blob/master/.php_cs)
+* `check-security`
+ * Check your application isn't using dependencies with known security vulnerabilities, using [sensiolabs/security-checker](https://github.com/sensiolabs/security-checker)
+* `test`
+ * Run your application's full test suite
+
 ## Whitespace <a class="text-grey" name="whitespace" href="#whitespace">#</a>
 
 PHP will be interpreted whether you write it with no whitespace or if you write it with double spacing. For readability, it is better to cater to your fellow developers rather than for the PHP interpreter. Don't be afraid to use whitespace.
