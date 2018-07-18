@@ -1,6 +1,6 @@
 [build]
 
-command = "./vendor/bin/jigsaw build production"
+command = "yarn run prod && ./vendor/bin/jigsaw build production"
 publish = "build_production"
 
 [build.environment]
