@@ -104,7 +104,7 @@ class SignupException extends RuntimeException
     public static function invalidStep($step, $validSteps)
     {
         return new static(vsprintf('The step [%s] is invalid. Valid steps are: %s', [
-            request('step'),
+            $step,
             $this->validSteps()->implode(', '),
         ]));
     }
