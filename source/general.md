@@ -16,7 +16,7 @@ Always strive to keep your code expressive and human-readable. Make it easy for 
 
 ## Should I rename my application? <a class="text-grey" name="should-i-rename-my-application" href="#should-i-rename-my-application">#</a>
 
-Laravel ships with an `app:name` command. *Never* rename your application. Keeping the `App` namespace reduces cognitive overhead between applications such that you always always import each application's classes from the same namespace when working between different projects.
+Laravel ships with an `app:name` command. *Never* rename your application. Keeping the `App` namespace reduces cognitive overhead between applications such that you always import each application's classes from the same namespace when working between different projects.
 
 ## Composer scripts <a class="text-grey" name="composer scripts" href="#composer scripts">#</a>
 
