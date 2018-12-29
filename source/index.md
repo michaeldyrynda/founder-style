@@ -26,7 +26,7 @@ Simply put, Laravel gives you all of the tools to build a robust, modern web app
 
 ## A starter application <a class="text-grey" name="a-starter-application" href="#a-starter-application">#</a>
 
-[Founder](https://github.com/michaeldyrynda/founder) provides you with a Laravel starter application that builds from the one you will find in the Laravel [GitHub repository](https://github.com/laravel/laravel). It takes the base Laravel application, applies the styles and conventions that are explained throughout this style guide, and adds some useful packages you will find yourself otherwise installing manually each time.
+[Founder](https://github.com/michaeldyrynda/founder) provides you with a Laravel starter application that builds from the one you will find in the Laravel [GitHub repository](https://github.com/michaeldyrynda/founder). It takes the base Laravel application, applies the styles and conventions that are explained throughout this style guide, and adds some useful packages you will find yourself otherwise installing manually each time.
 
 Getting started with Founder is simple with [Composer](https://getcomposer.org).
 
