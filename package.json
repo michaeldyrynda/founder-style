@@ -6,8 +6,8 @@
     "dev": "npm run development",
     "prod": "npm run production",
     "watch": "npm run development -- --watch",
-    "docs:dev": "node_modules/.bin/vuepress dev source",
-    "docs:build": "node_modules/.bin/vuepress build source"
+    "docs:dev": "node_modules/.bin/vuepress dev docs",
+    "docs:build": "node_modules/.bin/vuepress build docs"
   },
   "devDependencies": {
     "cross-env": "^5.1",

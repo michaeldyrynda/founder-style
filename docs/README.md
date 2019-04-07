@@ -2,6 +2,8 @@
 title: Style Guide
 ---
 
+# Founder Style Guide
+
 ## Introduction
 
 This style guide:
