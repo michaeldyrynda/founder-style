@@ -1,12 +1,16 @@
 ---
-extends: _layouts.master
-section: content
 title: Configuration
-previousLink: /conditionals
-previous: Conditionals
-nextLink: /routing
-next: Routing
 ---
+
+# Configuration
+
+## App-specific config
+
+Wherever possible, your application should have its own configuration file. A generic `settings.php` or a name specific to the file i.e. `crm.php` should be used, rather than adding additional keys to the default Laravel configuration files.
+
+By maintaining a separate configuration file for your application-specific concerns, it becomes much simpler to keep these files up-to-date with the default Laravel configuration files, and subsequently makes upgrading between versions easy.
+
+## Naming
 
 Files that live inside your application's `config/` directory must use kebab-case.
 

@@ -1,12 +1,8 @@
 ---
-extends: _layouts.master
-section: content
 title: Docblocks & Comments
-previousLink: /packages
-previous: Packages
-nextLink: /conditionals
-next: Conditionals
 ---
+
+# Docblocks & Comments
 
 Whilst docblocks can be useful for introducing new developers in your codebase to your functions, it is much too easy for them to fall out of sync with your actual implementation if you're not careful. Avoid them wherever possible by writing expressive code.
 

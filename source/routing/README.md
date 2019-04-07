@@ -1,18 +1,14 @@
 ---
-extends: _layouts.master
-section: content
 title: Routing
-previousLink: /configuration
-previous: Configuration
-nextLink: /controllers
-next: Controllers
 ---
 
-Always try and keep your endpoints RESTful wherever possible, using the seven operations as described in the [RESTful controllers](/controllers#restful-controllers) documentation.
+# Routing
+
+Always try and keep your endpoints RESTful wherever possible, using the seven operations as described in the [RESTful controllers](/controllers/#restful-controllers) documentation.
 
 ```php
 // http://example.com/articles
-Route::get('articles', 'ArticlesController@index')->name('articles.index');
+Route::get('articles', 'ArticleController@index')->name('articles.index');
 ```
 
 ```html
@@ -21,16 +17,16 @@ Route::get('articles', 'ArticlesController@index')->name('articles.index');
 </a>
 ```
 
-## Route parameters <a class="text-grey" name="route-parameters" href="#route-parameters">#</a>
+## Route parameters
 
 When specifying parameters, use the singular form of the resource name.
 
 ```php
 // Good
-Route::get('articles/{article}', 'ArticlesController@show')->name('articles.show');
+Route::get('articles/{article}', 'ArticleController@show')->name('articles.show');
 
 // Bad
-Route::get('articles/{articles}', 'ArticlesController@show')->name('articles.show');
+Route::get('articles/{articles}', 'ArticleController@show')->name('articles.show');
 ```
 
 When declaring nested route names, use the singular form of the parent resource and plural for the child.
@@ -45,7 +41,7 @@ Route::post('articles/{article}/comments', 'ArticleCommentsController@store')
      ->name('articles.comments.store');
 ```
 
-## Route declaration <a class="text-grey" name="route-declaration" href="#route-declaration">#</a>
+## Route declaration
 
 When declaring routes in your application, be sure to always define the HTTP verb first. This makes it much easier to visually scan the routes file.
 

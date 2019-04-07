@@ -1,12 +1,8 @@
 ---
-extends: _layouts.master
-section: content
 title: Packages
-previousLink: /production
-previous: Production
-nextLink: /docblocks-comments
-next: Docblocks & Comments
 ---
+
+# Packages
 
 Since the arrival of [Composer](https://getcomposer.org), copying and pasting code between projects is a thing of the past.
 

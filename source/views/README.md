@@ -1,18 +1,16 @@
 ---
-extends: _layouts.master
-section: content
 title: Views
-previousLink: /controllers
-previous: Controllers
-nextLink: /validation
-next: Validation
 ---
 
-Views are a means for displaying your data. You should always strive to keep any logic and calculations out of your views at all times, instead carrying out all of this implementation in your controllers. This leaves your views slim and simple to reason about.
+# Views
 
-Although Laravel supports templating with plain PHP files, Laravel's Blade templating engine is simple and powerful. It provides control structures that allow you to iterate over arrays of data that you might return from your database, conditionally display content, inherit from and extend other layouts, and even abstract reusable components.
+Views are a means for displaying your data. You should strive to keep any logic and calculations out of your views at all times, instead carrying out all of this implementation in your controllers. This leaves your views slim and simple to reason about.
 
-## Naming and usage <a class="text-grey" name="naming-and-usage" href="#naming-and-usage">#</a>
+Although Laravel supports templating with plain PHP files, Laravel's Blade templating engine is simple and powerful and should be used wherever possible.
+
+Blade provides control structures that allow you to iterate over arrays of data that you might return from your database, conditionally display content, inherit from and extend other layouts, and even abstract reusable components.
+
+## Naming and usage
 
 View filenames must be `camelCase`.
 
@@ -35,7 +33,7 @@ resources/
       index.blade.php
 ```
 
-## Blade Templates <a class="text-grey" name="blade-templates" href="#blade-templates">#</a>
+## Blade Templates
 
 Always use four spaces for indentation.
 
@@ -47,7 +45,7 @@ Always use four spaces for indentation.
 
 Control structures should not be surrounded by, or contain spaces. Whilst this is not necessarily "better" or "worse" than alternatives, it is a stylistic choice of formatting for projects based on [Founder](https://github.com/michaeldyrynda/founder).
 
-```
+```php
 // Good
 @if($condition)
     Something good
@@ -61,7 +59,7 @@ Control structures should not be surrounded by, or contain spaces. Whilst this i
 @endif
 ```
 
-## HTML Attributes <a class="text-grey" name="html-attributes" href="#html-attributes">#</a>
+## HTML Attributes
 
 HTML attributes should always be written in the same order as described in [Mark Otto's](https://twitter.com/mdo) [code guide](http://codeguide.co/#html-attribute-order).
 
@@ -78,8 +76,12 @@ This also aims to reduce unnecessary changes in version control, for both indivi
 </a>
 ```
 
-## View composers <a class="text-grey" name="view-composers" href="#view-composers">#</a>
+## View composers
 
 <a href="https://laravel.com/docs/5.5/views#view-composers">View composers</a> allow you to inject data into each specified view in your application. They are useful, for example, to push the authenticated user into all of your views and indeed whether or not you have an authenticated user at all.
 
-Use View Composers with caution, however, as whilst they are a good way to share data with your views, it is not always apparent to a new - or even return - developer in your codebase to know where the variables come from and where they are defined. If you do use them, create a fresh [Service Provider](https://laravel.com/docs/5.5/providers) and be sure to include `Composer` in the class name to make its purpose clear.
+::: warning
+**Use View Composers with caution.**
+
+It is not always apparent to a new - or even experienced - developer in your codebase to know where the variables come from and where they are defined. If you do use them, create a specific [service provider](https://laravel.com/docs/providers) and be sure to include `Composer` in the class name to make its purpose clear.
+:::

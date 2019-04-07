@@ -1,16 +1,12 @@
 ---
-extends: _layouts.master
-section: content
 title: Conditionals
-previousLink: /docblocks-comments
-previous: Docblocks & Comments
-nextLink: /configuration
-next: Configuration
 ---
+
+# Conditionals
 
 Conditionals are a common part of any application, but there are a few simple conventions you can follow which makes them easier to parse when scanning through a file.
 
-## Avoid `if`/`elseif`/`else` chains <a class="text-grey" name="avoid-if-elseif-else-chains" href="#avoid-if-elseif-else-chains">#</a>
+## Avoid `if`/`elseif`/`else` chains
 
 It is often easier to reason about the execution path of conditional behaviour using [Guard Clauses](https://refactoring.com/catalog/replaceNestedConditionalWithGuardClauses.html), rather than chaining one or more `elseif` or `else` statements.
 
@@ -38,11 +34,11 @@ public function update($service)
 }
 ```
 
-## Avoid nested conditionals <a class="text-grey" name="avoid-nested-conditionals" href="#avoid-nested-conditionals">#</a>
+## Avoid nested conditionals
 
 Whenever possible, avoid deep-nesting and look for opportunities to either extract complex conditional logic to methods or return early.
 
-## Ternary operations <a class="text-grey" name="ternary-operations" href="#ternary-operations">#</a>
+## Ternary operations
 
 Unless you are dealing with very short ternary conditions, each expression should be on its own line.
 

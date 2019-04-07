@@ -6,7 +6,8 @@
     "dev": "npm run development",
     "prod": "npm run production",
     "watch": "npm run development -- --watch",
-    "deploy": "./vendor/bin/jigsaw build production && yarn run prod && echo 'style.dyrynda.com.au' > build_production/CNAME && git add build_production && git commit -m 'production build for deploy' && git subtree push --prefix build_production origin gh-pages"
+    "docs:dev": "node_modules/.bin/vuepress dev source",
+    "docs:build": "node_modules/.bin/vuepress build source"
   },
   "devDependencies": {
     "cross-env": "^5.1",
@@ -16,7 +17,7 @@
     "less-loader": "^4.0.5",
     "node-cmd": "^3.0.0",
     "on-build-webpack": "^0.1.0",
-    "tailwindcss": "^0.4.0",
+    "vuepress": "^0.14.10",
     "webpack-watch": "^0.2.0",
     "yargs": "^10.0.3"
   }

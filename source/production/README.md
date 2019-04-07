@@ -1,14 +1,10 @@
 ---
-extends: _layouts.master
-section: content
 title: Production
-previousLink: /general
-previous: General
-nextLink: /packages
-next: Packages
 ---
 
-## Forge deployment <a class="text-grey" name="forge-deployment" href="#forge-deployment">#</a>
+# Production
+
+## Forge deployment
 
 When deploying applications with [Laravel Forge](https://forge.laravel.com) for the first time, do not select *Install Composer Dependencies*.
 
@@ -18,13 +14,13 @@ It is useful to store production-specific configuration in `.env.production.exam
 
 The following deployment script should be used on a PHP 7.2 host, and can be executed once the application repository has been installed by clicking on the *Deploy Now* button.
 
-```
+```bash
 cd /home/forge/{{ site_name }}
 git pull origin master
 composer install --no-interaction --prefer-dist --optimize-autoloader --no-scripts
-yarn --silent --no-emoji --no-progress
+npm ci -s --no-progress
 npm run prod -s --no-progress
-echo "" | sudo -S service php7.2-fpm reload
+echo "" | sudo -S service php7.3-fpm reload
 
 if [ -f artisan ]
 then
@@ -37,7 +33,7 @@ then
 fi
 ```
 
-## Laravel Horizon <a class="text-grey" name="laravel-horizon" href="#laravel-horizon">#</a>
+## Laravel Horizon
 
 All Forge-managed servers ship with Redis running by default. Using Horizon to manage your queues, you will also get a dashboard, which you can use to monitor and retry your application jobs with ease.
 
@@ -49,6 +45,6 @@ Once your application has been installed, be sure to set up the daemon which kee
 
 Go to your server in Forge and click on *Daemons*.
 
-<img src="/images/horizon-config.png" class="mx-auto" alt="Horizon daemon config">
+![Horizon daemon config](../images/horizon-config.png)
 
 The `php artisan horizon:terminate` command that is part of the deployment script will handle gracefully terminating and restarting Horizon on each deployment.
