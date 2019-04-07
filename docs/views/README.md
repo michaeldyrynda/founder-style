@@ -78,7 +78,7 @@ This also aims to reduce unnecessary changes in version control, for both indivi
 
 ## View composers
 
-<a href="https://laravel.com/docs/5.5/views#view-composers">View composers</a> allow you to inject data into each specified view in your application. They are useful, for example, to push the authenticated user into all of your views and indeed whether or not you have an authenticated user at all.
+<a href="https://laravel.com/docs/views#view-composers">View composers</a> allow you to inject data into each specified view in your application. They are useful, for example, to push the authenticated user into all of your views and indeed whether or not you have an authenticated user at all.
 
 ::: warning
 **Use View Composers with caution.**

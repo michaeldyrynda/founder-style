@@ -68,9 +68,9 @@ class ServicesController
 
 ## Validation
 
-When building an application, it is preferable to handle your request validation inside your controller methods until either size or complexity dictates that you extract to a [form request](https://laravel.com/docs/5.5/validation#form-request-validation). Practice [YAGNI](https://martinfowler.com/bliki/Yagni.html).
+When building an application, it is preferable to handle your request validation inside your controller methods until either size or complexity dictates that you extract to a [form request](https://laravel.com/docs/validation#form-request-validation). Practice [YAGNI](https://martinfowler.com/bliki/Yagni.html).
 
-In simple instances, use the `validate` method on the `request` helper. If using form requests, be sure to type hint the form request and leverage Laravel's [Service Container](https://laravel.com/docs/5.5/container) to inject it in your method as needed.
+In simple instances, use the `validate` method on the `request` helper. If using form requests, be sure to type hint the form request and leverage Laravel's [Service Container](https://laravel.com/docs/container) to inject it in your method as needed.
 
 ```php
 class NotesController
@@ -88,7 +88,7 @@ class NotesController
 
 ## Route Model Binding
 
-Using implicit [route model binding](https://laravel.com/docs/5.5/routing#route-model-binding) out of the box, it is trivial to load the corresponding model and pass it directly to your controller, without an extra line of code responsible for querying the database.
+Using implicit [route model binding](https://laravel.com/docs/routing#route-model-binding) out of the box, it is trivial to load the corresponding model and pass it directly to your controller, without an extra line of code responsible for querying the database.
 
 ```php
 // routes/web.php
@@ -112,4 +112,4 @@ public function show(Service $service)
 }
 ```
 
-In many cases, the default implicit binding will suffice. If you want to use a column other than the model's `id`, you can set the value using the model's `getRouteKeyName()` method. For more complex lookups, can make use of [explicit binding](https://laravel.com/docs/5.5/routing#explicit-binding).
+In many cases, the default implicit binding will suffice. If you want to use a column other than the model's `id`, you can set the value using the model's `getRouteKeyName()` method. For more complex lookups, can make use of [explicit binding](https://laravel.com/docs/routing#explicit-binding).
