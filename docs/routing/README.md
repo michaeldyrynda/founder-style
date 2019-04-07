@@ -29,16 +29,16 @@ Route::get('articles/{article}', 'ArticleController@show')->name('articles.show'
 Route::get('articles/{articles}', 'ArticleController@show')->name('articles.show');
 ```
 
-When declaring nested route names, use the singular form of the parent resource and plural for the child.
+When declaring nested route names, use the plural form of bothe the parent and child resources.
 
 ```php
 // Good
-Route::post('articles/{article}/comments', 'ArticleCommentsController@store')
-     ->name('article.comments.store');
+Route::post('articles/{article}/comments', 'ArticleCommentController@store')
+     ->name('articles.comments.store');
 
 // Bad
-Route::post('articles/{article}/comments', 'ArticleCommentsController@store')
-     ->name('articles.comments.store');
+Route::post('articles/{article}/comments', 'ArticleCommentController@store')
+     ->name('article.comments.store');
 ```
 
 ## Route declaration
@@ -47,12 +47,12 @@ When declaring routes in your application, be sure to always define the HTTP ver
 
 ```php
 // Good
-Route::get('articles', 'ArticlesController@index')->name('articles.index');
-Route::post('articles/{article}/comments', 'ArticleCommentsController@store')
+Route::get('articles', 'ArticleController@index')->name('articles.index');
+Route::post('articles/{article}/comments', 'ArticleCommentController@store')
      ->name('article.comments.store');
 
 // Bad
-Route::name('articles.index')->get('articles', 'ArticlesController@index');
+Route::name('articles.index')->get('articles', 'ArticleController@index');
 Route::name('article.comments.store')
-     ->post('articles/{article}/comments', 'ArticleCommentsController@store');
+     ->post('articles/{article}/comments', 'ArticleCommentController@store');
 ```
