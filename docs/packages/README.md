@@ -23,7 +23,7 @@ You are of course free to add, change, and remove any packages from the [`compos
 * [laravel/horizon](https://github.com/laravel/horizon)
   * Horizon provides a beautiful dashboard and code-driven configuration for your Laravel powered Redis queues. Horizon allows you to easily monitor key metrics of your queue system such as job throughput, runtime, and job failures.
 * [laravel/telescope](https://github.com/laravel/telescope) (*dev only*)
- * An elegant debug assistant for the Laravel framework
+  * An elegant debug assistant for the Laravel framework
 * [sentry/sentry-laravel](https://github.com/getsentry/sentry-laravel)
   * Laravel-specific integration for bug tracking platform, [Sentry](https://getsentry.com).
 * [sensiolabs/security-checker](https://github.com/sensiolabs/security-checker)
