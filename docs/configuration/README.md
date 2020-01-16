@@ -10,6 +10,8 @@ Wherever possible, your application should have its own configuration file. A ge
 
 By maintaining a separate configuration file for your application-specific concerns, it becomes much simpler to keep these files up-to-date with the default Laravel configuration files, and subsequently makes upgrading between versions easy.
 
+More information on this approach can be found on Jason McCreary's article on [maintaining Laravel config files](https://jasonmccreary.me/articles/maintaining-laravel-config-files/).
+
 ## Naming
 
 Files that live inside your application's `config/` directory must use kebab-case.
