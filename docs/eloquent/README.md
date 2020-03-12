@@ -29,6 +29,7 @@ The PSR-2 styles that are used with Founder define the order various components 
 * Magic methods
 * `boot` method
 * Named (static) constructors
+* Relationship methods (sorted alphabetically)
 * Query scopes
 * Mutators and accessors (grouping each mutator / accessor pair)
 
