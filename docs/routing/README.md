@@ -29,7 +29,7 @@ Route::get('articles/{article}', 'ArticleController@show')->name('articles.show'
 Route::get('articles/{articles}', 'ArticleController@show')->name('articles.show');
 ```
 
-When declaring nested route names, use the plural form of bothe the parent and child resources.
+When declaring nested route names, use the plural form of both the parent and child resources.
 
 ```php
 // Good
