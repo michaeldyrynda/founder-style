@@ -150,7 +150,7 @@ public function store(Post $post)
 
 The Law of Demeter helps to decouple your code by encouraging you to ensure that each unit only has limited knowledge of other units. That is to say that your controller should not need to know how specifically a `Comment` is added to a `Post`.
 
-Instead, consider abstract this implementation detail behind a new method. In doing so, your controller needn't know how a `Post` and `Comment` would be related, and if the implementation changes, the call to do so doesn't. SOLID!
+Instead, consider abstracting this implementation detail behind a new method. In doing so, your controller needn't know how a `Post` and `Comment` would be related, and if the implementation changes, the call to do so doesn't. SOLID!
 
 ```php
 // Post.php
