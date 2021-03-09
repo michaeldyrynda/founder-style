@@ -12,7 +12,7 @@ Be sure to keep any of your production environment configuration variables up to
 
 It is useful to store production-specific configuration in `.env.production.example`, such as defining your cache and session drivers as `redis` instead of `file` or that debug should be disabled.
 
-The following deployment script should be used on a PHP 7.3 host, and can be executed once the application repository has been installed by clicking on the *Deploy Now* button.
+The following deployment script maybe be used on a Laravel Forge-managed host, using the configured version of PHP for site being deployed. It can be executed once the application repository has been installed by clicking on the *Deploy Now* button.
 
 ```bash
 cd /home/forge/{{ site_name }}
