@@ -16,11 +16,10 @@ The following deployment script should be used on a PHP 7.3 host, and can be exe
 
 ```bash
 cd /home/forge/{{ site_name }}
-git pull origin master
+git pull origin main
 composer install --no-interaction --prefer-dist --optimize-autoloader --no-scripts
 npm ci -s --no-progress
 npm run prod -s --no-progress
-echo "" | sudo -S service php7.3-fpm reload
 
 if [ -f artisan ]
 then
@@ -29,8 +28,13 @@ then
     php artisan cache:clear
     php artisan config:cache
     php artisan route:cache
-    php artisan horizon:terminate
+    php artisan storage:link
+    # If using Laravel Horizon
+    # php artisan horizon:terminate
 fi
+
+( flock -w 10 9 || exit 1
+    echo 'Restarting FPM...'; sudo -S service $FORGE_PHP_FPM reload ) 9>/tmp/fpmlock
 ```
 
 ## Laravel Horizon
