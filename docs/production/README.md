@@ -16,6 +16,8 @@ The following deployment script maybe be used on a Laravel Forge-managed host, u
 
 ```bash
 cd /home/forge/{{ site_name }}
+# If using spatie/laravel-backup
+# $FORGE_PHP artisan backup:run
 git pull origin main
 composer install --no-interaction --prefer-dist --optimize-autoloader --no-scripts
 npm ci -s --no-progress
@@ -23,14 +25,14 @@ npm run prod -s --no-progress
 
 if [ -f artisan ]
 then
-    php artisan migrate --force
-    php artisan view:clear
-    php artisan cache:clear
-    php artisan config:cache
-    php artisan route:cache
-    php artisan storage:link
+    $FORGE_PHP artisan migrate --force
+    $FORGE_PHP artisan view:clear
+    $FORGE_PHP artisan cache:clear
+    $FORGE_PHP artisan config:cache
+    $FORGE_PHP artisan route:cache
+    $FORGE_PHP artisan storage:link
     # If using Laravel Horizon
-    # php artisan horizon:terminate
+    # $FORGE_PHP artisan horizon:terminate
 fi
 
 ( flock -w 10 9 || exit 1
