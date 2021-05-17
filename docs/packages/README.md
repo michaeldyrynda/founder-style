@@ -12,19 +12,13 @@ To that end, [Founder](https://github.com/michaeldyrynda/founder) installs a few
 
 You are of course free to add, change, and remove any packages from the [`composer.json` file](https://github.com/michaeldyrynda/founder/blob/master/composer.json) as you see fit.
 
-* [dyrynda/laravel-make-user](https://github.com/michaeldyrynda/laravel-make-user)
-  * Many of our apps are internally facing, so there is no public registration. This package makes adding your first - typically admin - user a cinch.
 * [friendsofphp/php-cs-fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer)
   * Ensures that the code style and formatting of each project is consistent, using rules defined in the [`.php_cs` file](https://github.com/michaeldyrynda/founder/blob/master/.php_cs).
-* [hemp/presenter](https://github.com/davidhemphill/presenter)
-  * When your models start to get filled with accessors, creating a presenter is a good way to separate the logic and clean up your model.
-* [laracasts/flash](https://github.com/laracasts/flash)
-  * A package to handle displaying notification messages within your application.
 * [laravel/horizon](https://github.com/laravel/horizon)
   * Horizon provides a beautiful dashboard and code-driven configuration for your Laravel powered Redis queues. Horizon allows you to easily monitor key metrics of your queue system such as job throughput, runtime, and job failures.
 * [laravel/telescope](https://github.com/laravel/telescope) (*dev only*)
   * An elegant debug assistant for the Laravel framework
-* [sentry/sentry-laravel](https://github.com/getsentry/sentry-laravel)
-  * Laravel-specific integration for bug tracking platform, [Sentry](https://getsentry.com).
-* [sensiolabs/security-checker](https://github.com/sensiolabs/security-checker)
-  * A command line tool that checks your application isn't using dependencies with known security vulnerabilities.
+* [honeybadger-io/honeybadger-laravel](https://github.com/honeybadger-io/honeybadger-laravel)
+  * Laravel-specific integration for bug tracking platform, [Honeybadger](https://honeybadger.io).
+* [enlightn/enlightn](https://github.com/enlightn/enlightn)
+  * A command line tool for performance and security reporting.
