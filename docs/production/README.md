@@ -19,7 +19,7 @@ cd /home/forge/{{ site_name }}
 # If using spatie/laravel-backup
 # $FORGE_PHP artisan backup:run
 git pull origin main
-composer install --no-interaction --prefer-dist --optimize-autoloader --no-scripts
+composer install --no-interaction --prefer-dist --optimize-autoloader --no-dev
 npm ci -s --no-progress
 npm run prod -s --no-progress
 
